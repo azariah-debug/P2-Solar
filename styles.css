@@ -360,7 +360,7 @@ h2 em { font-family:inherit; font-style:normal; font-weight:inherit; color:var(-
   .intro-statement > span { white-space:nowrap; }
 }
 .business-icon { width:48px; height:48px; overflow:visible; }
-.tracker-panel { transform-origin:31.5px 50px; animation:solar-track 6s ease-in-out infinite alternate; }
+.tracker-panel { transform-origin:31.5px 50px; animation:solar-track 8s ease-in-out infinite alternate; }
 @keyframes solar-track { from { transform:rotate(-13deg); } to { transform:rotate(13deg); } }
 .electron { fill:var(--moss); stroke:var(--paper-bright); stroke-width:1; offset-path:path('M59 32 A27 11 0 1 1 5 32 A27 11 0 1 1 59 32'); animation:electron-orbit 7s linear infinite; }
 .electron-two { animation-duration:9s; animation-delay:-3s; }
@@ -384,6 +384,17 @@ h2 em { font-family:inherit; font-style:normal; font-weight:inherit; color:var(-
 .motion-paused .service-symbol,.motion-paused .business::before { animation-play-state:paused; }
 .business { transition:border-color .35s ease,box-shadow .35s ease; }
 .business:hover { border-color:rgba(66,87,65,.38); box-shadow:0 8px 28px rgba(32,49,40,.045); }
+/* AWT-inspired pacing: small eased arrivals, continuous illustrative flow. */
+.hero-copy > .eyebrow,.hero-copy > h1,.hero-copy > .hero-note,.hero-copy > .hero-actions {
+  animation:hero-arrive 1s cubic-bezier(.16,1,.3,1) both;
+}
+.hero-copy > h1 { animation-delay:.08s; }
+.hero-copy > .hero-note { animation-delay:.16s; }
+.hero-copy > .hero-actions { animation-delay:.24s; }
+@keyframes hero-arrive { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.solar-tracker > circle { transform-origin:45px 12px; animation:sun-breathe 5.6s ease-in-out infinite; }
+@keyframes sun-breathe { 0%,100% { opacity:.7; transform:scale(.92); } 50% { opacity:1; transform:scale(1.08); } }
+.motion-paused .hero-copy > *,.motion-paused .solar-tracker > circle { animation-play-state:paused; }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }
   *,*::before,*::after { transition:none!important; animation:none!important; }
