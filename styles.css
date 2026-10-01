@@ -351,4 +351,41 @@ h2 em { font-family:inherit; font-style:normal; font-weight:inherit; color:var(-
   .brand-caption { display:none; }
   .menu-toggle { flex-shrink:0; }
 }
-@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
+/* Quiet, continuous motion using the existing line artwork. */
+.intro-statement > span { display:block; }
+.intro-statement .intro-first-line { color:var(--ink); }
+@media(min-width:701px) {
+  .intro { grid-template-columns:1.2fr 1fr; column-gap:clamp(1.5rem,4vw,3rem); }
+  .intro-statement { font-size:clamp(1.05rem,2.12vw,1.5rem); }
+  .intro-statement > span { white-space:nowrap; }
+}
+.business-icon { width:48px; height:48px; overflow:visible; }
+.tracker-panel { transform-origin:31.5px 50px; animation:solar-track 6s ease-in-out infinite alternate; }
+@keyframes solar-track { from { transform:rotate(-13deg); } to { transform:rotate(13deg); } }
+.electron { fill:var(--moss); stroke:var(--paper-bright); stroke-width:1; offset-path:path('M59 32 A27 11 0 1 1 5 32 A27 11 0 1 1 59 32'); animation:electron-orbit 7s linear infinite; }
+.electron-two { animation-duration:9s; animation-delay:-3s; }
+.electron-three { animation-duration:11s; animation-delay:-7s; }
+@keyframes electron-orbit { to { offset-distance:100%; } }
+.orbit-traveler { position:absolute; inset:-1px; border-radius:50%; animation:atom-orbit 16s linear infinite; }
+.orbit-traveler::after { content:""; position:absolute; left:50%; top:0; width:10px; height:10px; transform:translate(-50%,-50%); border-radius:50%; background:var(--forest); box-shadow:0 0 0 4px #cbd3b680; }
+.orbit-two .orbit-traveler { animation-duration:20s; animation-delay:-7s; animation-direction:reverse; }
+.orbit-three .orbit-traveler { animation-duration:24s; animation-delay:-15s; }
+@keyframes atom-orbit { to { transform:rotate(360deg); } }
+.motion-toggle { display:block; min-height:44px; margin:0 auto 1rem; padding:.35rem .9rem; border:1px solid var(--line); border-radius:4px; background:transparent; color:var(--muted); font-size:.75rem; cursor:pointer; }
+.motion-paused .tracker-panel,.motion-paused .electron,.motion-paused .orbit-traveler { animation-play-state:paused; }
+.service-symbol { animation:energy-float 8s ease-in-out infinite; }
+.service-lines > a:nth-child(2) .service-symbol { animation-delay:-2s; }
+.service-lines > a:nth-child(3) .service-symbol { animation-delay:-4s; }
+.service-lines > a:nth-child(4) .service-symbol { animation-delay:-6s; }
+@keyframes energy-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-3px); } }
+.business::before { animation:energy-glow 10s ease-in-out infinite; }
+.research-business::before { animation-delay:-5s; }
+@keyframes energy-glow { 0%,100% { opacity:.45; } 50% { opacity:.7; } }
+.motion-paused .service-symbol,.motion-paused .business::before { animation-play-state:paused; }
+.business { transition:border-color .35s ease,box-shadow .35s ease; }
+.business:hover { border-color:rgba(66,87,65,.38); box-shadow:0 8px 28px rgba(32,49,40,.045); }
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { transition:none!important; animation:none!important; }
+  .motion-toggle { display:none; }
+}

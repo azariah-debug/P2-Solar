@@ -194,3 +194,9 @@ document.addEventListener('keydown', event => {
   }
 });
 renderRoute();
+const motionToggle = document.querySelector('.motion-toggle');
+motionToggle.addEventListener('click', () => {
+  const paused = document.body.classList.toggle('motion-paused');
+  motionToggle.setAttribute('aria-pressed', String(paused));
+  motionToggle.textContent = paused ? 'Resume animations' : 'Pause animations';
+});
