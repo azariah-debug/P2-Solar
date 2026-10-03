@@ -1,0 +1,42 @@
+/* An integrated company spread, not a collection of promotional cards. */
+.businesses .section-heading { margin-bottom:40px; }
+.business-grid { grid-template-columns:1fr 1fr; gap:0; }
+.business-grid .business {
+ display:grid; grid-template-columns:minmax(0,1fr) 112px;
+ grid-template-areas:"title title" "logo art" "copy copy" "link link";
+ grid-template-rows:auto 110px 1fr auto;
+ min-height:0; padding:8px 44px 12px 0; overflow:visible;
+ background:var(--paper); border:0; border-radius:0; box-shadow:none;
+ color:var(--ink); isolation:isolate;
+}
+.business-grid .business + .business { padding:8px 0 12px 44px; border-left:1px solid var(--line); }
+.business-grid .business:hover { background:var(--paper); box-shadow:none; }
+.business-grid .business h3 { padding:0; margin:0 0 18px; font-size:clamp(1.8rem,3vw,2.6rem); letter-spacing:-.045em; line-height:1.08; }
+.business-grid .division-logo-wrap { width:204px; height:104px; padding:0; margin:0; background:transparent; border-radius:0; isolation:auto; justify-content:flex-start; }
+.business-grid .division-logo { width:172px; max-height:90px; object-position:left center; }
+.business-grid .futricity-logo { width:130px; }
+.business-grid .business-top { padding:0; margin:0; min-height:0; align-self:center; justify-content:flex-end; }
+.business-grid .business-label { display:none; }
+.business-grid .business-icon { position:static; width:90px; height:90px; margin:0; opacity:.8; }
+.business-grid .business > p { padding:22px 0 0; margin:0; max-width:43ch; align-self:start; font-size:1.125rem; line-height:1.6; }
+.business-grid .business-tags { display:none; }
+.business-grid .business-link { justify-self:start; align-self:end; margin:28px 0 0; padding:12px 18px; min-height:48px; gap:26px; border:0; border-radius:4px; background:var(--forest); color:var(--paper-bright); font-size:.875rem; font-weight:500; text-decoration:none; }
+.business-grid .business-link:hover { background:#3b5749; color:var(--paper-bright); text-decoration:none; }
+.business-grid .business-link:focus-visible { outline-color:var(--forest); }
+@media(min-width:701px) and (max-width:1000px) {
+ .business-grid .business { padding-right:26px; grid-template-columns:minmax(0,1fr) 80px; }
+ .business-grid .business + .business { padding-left:26px; }
+ .business-grid .division-logo-wrap { width:164px; }
+ .business-grid .division-logo { width:156px; }
+ .business-grid .futricity-logo { width:124px; }
+ .business-grid .business-icon { width:68.4px; height:68.4px; }
+}
+@media(max-width:700px) {
+ .businesses .section-heading { margin-bottom:30px; }
+ .business-grid { grid-template-columns:1fr; gap:30px; }
+ .business-grid .business { padding:0 0 30px; grid-template-columns:minmax(0,1fr) 100px; }
+ .business-grid .business + .business { padding:30px 0 0; border-left:0; border-top:1px solid var(--line); }
+ .business-grid .business h3 { font-size:2rem; margin-bottom:12px; }
+ .business-grid .business > p { font-size:1rem; padding-top:18px; }
+ .business-grid .business-link { margin-top:22px; }
+}

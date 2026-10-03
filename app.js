@@ -2,7 +2,7 @@ const sections = [
   {
     slug: 'about', title: 'About P2 Solar', summary: 'Company overview, purpose and values.',
     headline: 'Clean technology with a long-term view.',
-    intro: 'P2 Solar is committed to advancing sustainable solutions through renewable energy and carbon mitigation research while creating long-term shareholder value.',
+    intro: 'P2 Solar is committed to advancing sustainable solutions through renewable energy and carbon mitigation research, with the aim of creating long-term shareholder value.',
     blocks: [
       { title: 'Vision', text: 'To become a recognized leader in renewable energy and climate innovation by developing practical solutions that contribute to a cleaner and more sustainable future.' },
       { title: 'Mission', text: 'To advance clean energy adoption and foster innovation through responsible business practices, scientific research, strategic partnerships and environmental stewardship.' },
@@ -27,8 +27,8 @@ const sections = [
     blocks: [
       { title: 'Residential solar', text: 'Designed to lower utility costs, improve energy independence and reduce household carbon footprints.', list: ['Rooftop solar installations', 'Battery system integration', 'EV charger integration', 'Net metering support', 'System monitoring'] },
       { title: 'Commercial solar', text: 'Solar applications for office buildings, retail centres, warehouses, farms, agricultural facilities and industrial properties.', list: ['Reduced operating expenses', 'Long-term energy savings', 'Improved ESG performance', 'Sustainability leadership'] },
-      { title: 'Ground mount solar', text: 'Flexible and scalable systems where rooftop space is limited, including agricultural properties, rural land, community solar and commercial developments.' },
-      { title: 'Battery energy storage', text: 'Battery solutions that improve resilience and solar energy utilization.', list: ['Backup power', 'Load management', 'Peak-demand reduction', 'Enhanced energy security'] }
+      { title: 'Ground-mounted solar', text: 'Flexible and scalable systems where rooftop space is limited, including agricultural properties, rural land, community solar and commercial developments.' },
+      { title: 'Battery energy storage', text: 'Battery solutions designed to improve resilience and solar energy utilization.', list: ['Backup power', 'Load management', 'Peak-demand reduction', 'Enhanced energy security'] }
     ]
   },
   {
@@ -52,7 +52,7 @@ const sections = [
       { title: 'Microbial carbon utilization', text: 'Assessing ways biological systems may contribute to carbon reduction pathways.' },
       { title: 'Environmental biotechnology', text: 'Investigating technologies with potential environmental and climate applications.' },
       { title: 'Synthetic biology', text: 'Evaluating future opportunities involving engineered biological systems designed to improve carbon mitigation capabilities.' },
-      { title: 'Research roadmap', list: ['Literature review', 'Technology assessment', 'Research planning', 'Proof-of-concept development', 'Intellectual property evaluation', 'Pilot program development', 'Commercialization assessment'] }
+      { title: 'Research roadmap', text: 'The roadmap outlines the intended progression of research. P2 CleanTech Labs is currently in the foundational research phase; the later stages below are not presented as completed milestones.', list: ['Literature review', 'Technology assessment', 'Research planning', 'Proof-of-concept development', 'Intellectual property evaluation', 'Pilot program development', 'Commercialization assessment'] }
     ]
   },
   {
@@ -103,7 +103,7 @@ const sections = [
 sections.find(item => item.slug === 'about').blocks.push(
   { title: 'Board of directors', heading: true },
   { title: 'Raj-Mohinder S. Gurm', text: 'Raj-Mohinder S. Gurm is a director of P2 Solar. He brings experience in business development, international trade, telecommunications and public-company leadership. He founded Xanatel Communications Inc. in 1995 and has consulted for public companies since 2015. He earned a Bachelor of Science degree in Biology from the University of British Columbia in 1983.' },
-  { title: 'Sham Dhari', text: 'Sham Dhari holds a Bachelor of Applied Science degree in Electrical Engineering from the University of British Columbia. His engineering experience spans the pulp and paper industry, technology research and development, and field applications. A certified energy advisor, he specializes in energy modeling and testing for single-family homes and multi-unit buildings, with a focus on energy efficiency, occupant comfort and sustainable building practices.' },
+  { title: 'Sham Dhari', text: 'Sham Dhari holds a Bachelor of Applied Science degree in Electrical Engineering from the University of British Columbia. His engineering experience spans the pulp and paper industry, technology research and development, and field applications. A certified energy advisor, he specializes in energy modelling and testing for single-family homes and multi-unit buildings, with a focus on energy efficiency, occupant comfort and sustainable building practices.' },
   { title: 'Hans Edblad', text: 'Hans Edblad is a director and Vice President of Business Development at P2 Solar. He served as a consultant to the company from 2006 to 2009. His background includes business development and investment strategy through Chag Investments Ltd., and technical market consulting through APR Consulting Group.' }
 );
 sections.find(item => item.slug === 'investors').blocks.push(
@@ -183,7 +183,7 @@ function renderRoute() {
 
   preview.innerHTML = `
     <article class="route-panel" tabindex="-1">
-      <a class="breadcrumb" href="#/">← Overview</a>
+      <a class="breadcrumb" href="#/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg> Overview</a>
       ${divisionLogos[slug] ? `<div class="route-brand"><img src="./${divisionLogos[slug][0]}" alt="${divisionLogos[slug][1]}" /></div>` : ''}
       <header class="route-header">
         <div>

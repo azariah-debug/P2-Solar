@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="P2 Solar brings together renewable energy deployment and carbon mitigation research through Futricity Solar and P2 CleanTech Labs." />
-  <meta name="theme-color" content="#22362d" />
+  <meta name="theme-color" content="#2e483d" />
   <title>P2 Solar | Renewable Energy and Climate Innovation</title>
   <link rel="canonical" href="https://azariah-debug.github.io/P2-Solar/" />
   <meta property="og:type" content="website" />
@@ -24,8 +24,12 @@
   <meta name="twitter:image:alt" content="Two installers working together on rooftop solar panels above a green landscape." />
   <link rel="preload" as="image" href="./p2-solar-hero-v2.jpg" fetchpriority="high" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2322362d'/%3E%3Ccircle cx='43' cy='21' r='9' fill='%23dce2bd'/%3E%3Cpath d='M13 40h38l-6 14H19z' fill='%239da88b'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="./styles.css" />
-  <link rel="stylesheet" href="./content.css?v=20261003" />
+  <link rel="stylesheet" href="./styles.css?v=20261003-final" />
+  <link rel="stylesheet" href="./content.css?v=20261003-final" />
+  <link rel="stylesheet" href="./cards.css?v=20261003-final" />
+  <link rel="stylesheet" href="./palette.css?v=20261003-final" />
+  <link rel="stylesheet" href="./companies.css?v=20261003-final" />
+  <link rel="stylesheet" href="./editorial.css?v=20261003-final" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -55,18 +59,31 @@
       <div class="section-heading"><div><p class="eyebrow">Our companies</p><h2 id="business-title">Two perspectives.<br /><em>One shared purpose.</em></h2></div><p>Helping customers embrace clean energy while exploring the next generation of climate solutions.</p></div>
       <div class="business-grid">
         <article class="business solar-business">
-          <div class="business-top"><span class="business-label">Energy in action</span><svg class="business-icon solar-tracker" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="45" cy="12" r="6"/><g class="tracker-panel"><path d="M12 28h39l6 22H6l6-22ZM25 28l-2 22m14-22 2 22M9 39h45"/></g><path d="M31.5 50v9M22 59h19"/></svg></div>
+          <div class="business-top"><span class="business-label">Energy in action</span><svg class="business-icon solar-tracker solar-array" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <defs><linearGradient id="solar-cell-tone" x1="14" y1="26" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#6d8978"/><stop offset="1" stop-color="#354f43"/></linearGradient></defs>
+            <ellipse cx="32" cy="59" rx="20" ry="2.5" fill="#49675e" opacity=".09" stroke="none"/>
+            <g class="solar-sun" transform="translate(0 -9.75)"><circle cx="47" cy="12" r="4.5" fill="#c4b47a" stroke="none"/><path d="M47 3v2m0 14v2M38 12h2m14 0h2M40.6 5.6 42 7m10 10 1.4 1.4M40.6 18.4 42 17M52 7l1.4-1.4" stroke="#aa9a62" stroke-linecap="round"/></g>
+            <path d="M29 47v10h6V47M23 58h18" stroke="#607768" stroke-width="1.3" stroke-linecap="round"/>
+            <g class="tracker-panel">
+              <path d="M13 25h38l6 23H7l6-23Z" fill="url(#solar-cell-tone)" stroke="#49675e" stroke-width="1.1" stroke-linejoin="round"/>
+              <path d="m22.5 25-3 23M32 25v23m9.5-23 3 23M10 36.5h44" stroke="#dbe6dc" stroke-width=".65" opacity=".85"/>
+              <path d="M13.7 26.2h36.6" stroke="#f5f4ee" stroke-width=".7" opacity=".7"/>
+              <path d="M7 48v2h50v-2" fill="#607768" stroke="#49675e" stroke-width=".7" stroke-linejoin="round"/>
+            </g>
+          </svg></div>
+          <h3>Futricity Solar</h3>
           <div class="division-logo-wrap"><img class="division-logo futricity-logo" src="./futricity.jpg" width="382" height="263" alt="Futricity Solar Inc." loading="lazy" /></div>
-          <h3>Futricity Solar</h3><p>Solar energy for the way you live and work. From initial consultation to installation and commissioning.</p>
+          <p>Solar energy for the way you live and work. From initial consultation to installation and commissioning.</p>
           <div class="business-tags"><span>Homes</span><span>Businesses</span><span>Battery storage</span></div>
-          <a class="business-link" href="#/solutions">Discover Futricity <span aria-hidden="true">↗</span></a>
+          <a class="business-link" href="#/solutions">Explore solar solutions <svg class="action-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
         </article>
         <article class="business research-business">
           <div class="business-top"><span class="business-label">Ideas for tomorrow</span><svg class="business-icon atom-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="5"/><g><ellipse cx="32" cy="32" rx="27" ry="11"/><circle class="electron" r="2.6"/></g><g transform="rotate(60 32 32)"><ellipse cx="32" cy="32" rx="27" ry="11"/><circle class="electron electron-two" r="2.6"/></g><g transform="rotate(120 32 32)"><ellipse cx="32" cy="32" rx="27" ry="11"/><circle class="electron electron-three" r="2.6"/></g></svg></div>
+          <h3>P2 CleanTech Labs</h3>
           <div class="division-logo-wrap"><img class="division-logo" src="./p2-cleantech.jpg" width="864" height="307" alt="P2 CleanTech Labs Inc." loading="lazy" /></div>
-          <h3>P2 CleanTech Labs</h3><p>Exploring biological approaches to carbon mitigation through research, academic collaboration and innovation programs.</p>
+          <p>Exploring biological approaches to carbon mitigation through research, academic collaboration and innovation programs.</p>
           <div class="business-tags"><span>Research</span><span>Collaboration</span><span>Carbon mitigation</span></div>
-          <a class="business-link" href="#/research">Explore the research <span aria-hidden="true">↗</span></a>
+          <a class="business-link" href="#/research">Explore the research <svg class="action-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
         </article>
       </div>
     </section>
@@ -95,6 +112,6 @@
     <div class="footer-bottom"><a class="brand footer-logo" href="#/" aria-label="P2 Solar home"><img class="corporate-logo" src="./p2-solar.jpg" width="440" height="160" alt="P2 Solar — Powering Change" loading="lazy" /></a><p>Renewable energy today. Climate solutions for tomorrow.</p><nav aria-label="Footer navigation"><a href="#/investors">Investors</a><a href="#/news">News</a><a href="#/contact">Contact</a></nav></div>
     <p class="footer-note">P2 Solar Inc.</p>
   </footer>
-  <script src="./app.js?v=20261003"></script>
+  <script src="./app.js?v=20261003-final"></script>
 </body>
 </html>

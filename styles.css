@@ -271,7 +271,8 @@ h2 em { font-family:inherit; font-style:normal; font-weight:inherit; color:var(-
   .intro-statement { font-size:1.3rem; }
   .business h3 { font-size:1.8rem; }
   .directory-link small { font-size:.875rem; }
-  .research-art { min-height:210px; }
+  /* Reserve the full orbit envelope, particle halos and a separate caption row. */
+  .research-art { min-height:320px; padding-bottom:28px; box-sizing:border-box; }
   .research-copy h2 { font-size:2.15rem; }
   .footer-bottom nav { flex-wrap:wrap; }
 }
