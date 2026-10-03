@@ -1,0 +1,46 @@
+.document-link { display:inline-flex; align-items:center; min-height:44px; margin-top:.65rem; font-weight:600; text-decoration:underline; text-underline-offset:4px; }
+.document-note { margin-top:.75rem; font-size:.9rem!important; }
+.route-item time { display:block; color:var(--muted); font-size:.875rem; margin-bottom:.5rem; }
+.leadership-heading { grid-column:1/-1; margin-top:1.5rem; font-size:1.8rem; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+:root { --brand-teal:#07516b; --brand-leaf:#729848; }
+.corporate-logo { display:block; width:174px; height:auto; mix-blend-mode:multiply; }
+.site-header { height:88px; }
+.site-header .brand { flex-shrink:0; background:var(--paper); isolation:isolate; }
+.footer-logo { padding:10px 14px; background:var(--paper); border-radius:4px; }
+.footer-logo .corporate-logo { width:144px; }
+.division-logo-wrap { height:78px; display:flex; align-items:center; margin:0 0 1.2rem; }
+.division-logo { width:190px; max-width:100%; height:auto; max-height:72px; object-fit:contain; object-position:left center; mix-blend-mode:multiply; }
+.futricity-logo { width:122px; max-height:84px; }
+.business-label,.business-icon { color:var(--brand-teal); }
+.business-label { opacity:1; }
+.division-logo-wrap { height:84px; }
+.service-symbol { stroke:var(--brand-teal); }
+.directory-link:hover strong { color:var(--brand-teal); }
+.business { padding-top:1.3rem; }
+.business-top { min-height:60px; margin-bottom:.6rem; }
+.business h3 { font-size:clamp(1.6rem,2.6vw,2rem); }
+.business > p { line-height:1.65; }
+.business-link { color:var(--brand-teal); }
+.research-business .business-icon { color:var(--brand-teal); }
+.business-link:hover { color:var(--forest); }
+.business-tags span { opacity:1; }
+.document-link { color:var(--brand-teal); }
+.route-brand { margin:0 0 1.25rem; }
+.route-brand img { display:block; max-width:195px; max-height:85px; width:auto; height:auto; mix-blend-mode:multiply; }
+.route-grid { align-items:start; }
+.route-item p { max-width:65ch; }
+.directory-group-links { grid-template-columns:repeat(auto-fit,minmax(0,1fr)); }
+.directory-group-heading { border-left-color:var(--brand-leaf); }
+.route-item time { color:var(--brand-teal); }
+.business::before { opacity:.4; }
+@media(max-width:700px) {
+  .site-header { height:78px; }
+  .corporate-logo { width:148px; }
+  .division-logo-wrap { height:70px; margin-bottom:1rem; }
+  .division-logo { width:174px; }
+  .futricity-logo { width:112px; max-height:77px; }
+  .division-logo-wrap { height:78px; }
+  .document-link { overflow-wrap:anywhere; }
+}
+@media(max-width:600px) { .directory-group-links { grid-template-columns:1fr; } }

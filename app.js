@@ -99,15 +99,49 @@ const sections = [
   }
 ];
 
+// Supplied corporate documents, staged for review; production remains unchanged.
+sections.find(item => item.slug === 'about').blocks.push(
+  { title: 'Board of directors', heading: true },
+  { title: 'Raj-Mohinder S. Gurm', text: 'Raj-Mohinder S. Gurm is a director of P2 Solar. He brings experience in business development, international trade, telecommunications and public-company leadership. He founded Xanatel Communications Inc. in 1995 and has consulted for public companies since 2015. He earned a Bachelor of Science degree in Biology from the University of British Columbia in 1983.' },
+  { title: 'Sham Dhari', text: 'Sham Dhari holds a Bachelor of Applied Science degree in Electrical Engineering from the University of British Columbia. His engineering experience spans the pulp and paper industry, technology research and development, and field applications. A certified energy advisor, he specializes in energy modeling and testing for single-family homes and multi-unit buildings, with a focus on energy efficiency, occupant comfort and sustainable building practices.' },
+  { title: 'Hans Edblad', text: 'Hans Edblad is a director and Vice President of Business Development at P2 Solar. He served as a consultant to the company from 2006 to 2009. His background includes business development and investment strategy through Chag Investments Ltd., and technical market consulting through APR Consulting Group.' }
+);
+sections.find(item => item.slug === 'investors').blocks.push(
+  { title: 'Corporate governance', heading: true },
+  { title: 'Audit Committee Charter', date: '2025-03-15', dateLabel: 'March 15, 2025', text: 'The charter sets out the Audit Committee’s purpose, authority, composition and oversight responsibilities for financial reporting, internal controls and the independent auditor.', file: 'audit-committee-charter-2025.pdf', fileLabel: 'Read the Audit Committee Charter (PDF)' },
+);
+const newsSection = sections.find(item => item.slug === 'news');
+newsSection.intro = 'Company announcements and updates from P2 Solar. Releases are archived by their publication date.';
+newsSection.blocks = [
+  { title: 'P2 Solar Announces Revocation of the Cease Trade Order by British Columbia Securities Commission', date: '2025-01-24', dateLabel: 'January 24, 2025', text: 'P2 Solar’s January 24, 2025 release announces the revocation of the cease trade order and provides an update on corporate activity, the acquisition of Futricity Solar and historical financial information. Read the original release for the full announcement and forward-looking statement disclosures.', file: 'press-release-2025-01-24.pdf', fileLabel: 'Read the full press release (PDF)' }
+];
+
+// Do not expose placeholder-only destinations.
+for (const slug of ['projects', 'careers']) {
+  const index = sections.findIndex(item => item.slug === slug);
+  if (index !== -1) sections.splice(index, 1);
+}
+const contactSection = sections.find(item => item.slug === 'contact');
+contactSection.intro = 'For company information, solar inquiries, research collaboration or investor relations, contact P2 Solar.';
+contactSection.blocks = [{ title: 'Contact P2 Solar', text: 'Tell us a little about your inquiry so we can direct it to the appropriate team.', email: 'info@p2solar.com' }];
+const divisionLogos = { solutions: ['futricity.jpg', 'Futricity Solar Inc.'], research: ['p2-cleantech.jpg', 'P2 CleanTech Labs Inc.'] };
 const directory = document.querySelector('#directory-grid');
+newsSection.blocks.push(
+  { title: 'P2 Solar, Inc. Announces Launch of New Website', date: '2025-03-03', dateLabel: 'March 3, 2025', text: 'The company announced the launch of its updated website, providing information for investors and stakeholders. This is an archived announcement from March 2025.', file: 'press-release-2025-03-03.pdf', fileLabel: 'Read the full press release (PDF)' },
+  { title: 'P2 Solar, Inc. Announces Appointment of New Director', date: '2024-01-11', dateLabel: 'January 11, 2024', text: 'The company announced the appointment of electrical engineer Sham Dhari to its board of directors.', file: 'press-release-2024-01-11.pdf', fileLabel: 'Read the full press release (PDF)' },
+  { title: 'P2 Solar, Inc. Announces Completion of $110,000 Private Placement Under Partial Revocation Order', date: '2023-09-21', dateLabel: 'September 21, 2023', text: 'The company announced completion of a CA$110,000 convertible-debt private placement under a partial revocation order. See the original release for the terms and restrictions applicable at that time.', file: 'press-release-2023-09-21.pdf', fileLabel: 'Read the full press release (PDF)' },
+  { title: 'P2 Solar, Inc. Announces Filing 2023 Annual Report and Private Placement Under Partial Revocation Order', date: '2023-08-28', dateLabel: 'August 28, 2023', text: 'The company reported filing its annual and interim reports and provided a progress update on its private placement under a partial revocation order.', file: 'press-release-2023-08-28.pdf', fileLabel: 'Read the full press release (PDF)' }
+);
+newsSection.blocks.sort((a, b) => b.date.localeCompare(a.date));
+newsSection.intro = 'Company announcements, newest first. These archived releases reflect information at their original publication dates; historical plans and regulatory statements should not be read as current status.';
 const preview = document.querySelector('#content-preview');
 const menuButton = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('#main-nav');
 
 const directoryGroups = [
   { title: 'Our company', description: 'The people, purpose and direction.', slugs: ['about', 'companies', 'news'] },
-  { title: 'Our work', description: 'Energy today. Ideas for tomorrow.', slugs: ['solutions', 'research', 'projects'] },
-  { title: 'Get involved', description: 'Find your connection to P2 Solar.', slugs: ['investors', 'careers', 'contact'] }
+  { title: 'Our work', description: 'Energy today. Ideas for tomorrow.', slugs: ['solutions', 'research'] },
+  { title: 'Get involved', description: 'Find your connection to P2 Solar.', slugs: ['investors', 'contact'] }
 ];
 const directoryCopy = {
   about: ['About us', 'Our vision and values'],
@@ -150,6 +184,7 @@ function renderRoute() {
   preview.innerHTML = `
     <article class="route-panel" tabindex="-1">
       <a class="breadcrumb" href="#/">← Overview</a>
+      ${divisionLogos[slug] ? `<div class="route-brand"><img src="./${divisionLogos[slug][0]}" alt="${divisionLogos[slug][1]}" /></div>` : ''}
       <header class="route-header">
         <div>
           <p class="eyebrow">${section.title}</p>
@@ -158,11 +193,15 @@ function renderRoute() {
         <p class="route-intro">${section.intro}</p>
       </header>
       <div class="route-grid">
-        ${section.blocks.map(block => `
+        ${section.blocks.map(block => block.heading ? `<h2 class="leadership-heading">${block.title}</h2>` : `
           <section class="route-item">
             <h2>${block.title}</h2>
+            ${block.date ? `<time datetime="${block.date}">${block.dateLabel}</time>` : ''}
             ${block.text ? `<p>${block.text}</p>` : ''}
             ${block.list ? `<ul>${block.list.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+            ${block.email ? `<a class="document-link" href="mailto:${block.email}">${block.email}</a>` : ''}
+            ${block.note ? `<p class="document-note">${block.note}</p>` : ''}
+            ${block.file ? `<a class="document-link" href="./${block.file}" target="_blank" rel="noopener">${block.fileLabel} <span class="sr-only">(opens in a new tab)</span></a>` : ''}
           </section>
         `).join('')}
       </div>
