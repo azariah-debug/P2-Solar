@@ -102,11 +102,30 @@ const sections = [
 // Supplied corporate documents, staged for review; production remains unchanged.
 sections.find(item => item.slug === 'about').blocks.push(
   { title: 'Board of directors', heading: true },
-  { title: 'Raj-Mohinder S. Gurm', text: 'Raj-Mohinder S. Gurm is a director of P2 Solar. He brings experience in business development, international trade, telecommunications and public-company leadership. He founded Xanatel Communications Inc. in 1995 and has consulted for public companies since 2015. He earned a Bachelor of Science degree in Biology from the University of British Columbia in 1983.' },
-  { title: 'Sham Dhari', text: 'Sham Dhari holds a Bachelor of Applied Science degree in Electrical Engineering from the University of British Columbia. His engineering experience spans the pulp and paper industry, technology research and development, and field applications. A certified energy advisor, he specializes in energy modelling and testing for single-family homes and multi-unit buildings, with a focus on energy efficiency, occupant comfort and sustainable building practices.' },
-  { title: 'Hans Edblad', text: 'Hans Edblad is a director and Vice President of Business Development at P2 Solar. He served as a consultant to the company from 2006 to 2009. His background includes business development and investment strategy through Chag Investments Ltd., and technical market consulting through APR Consulting Group.' }
+  { title: 'Raj-Mohinder S. Gurm', role: 'President, Chief Executive Officer, Chief Financial Officer and Director', text: 'Raj-Mohinder S. Gurm’s career spans international trade, operations management, telecommunications and public-company leadership. He has been President and CEO of Spectrum International Inc. since 1990. In 1995 he founded Xanatel Communications Inc., a wireless communications company later sold to a company listed on the Alberta Stock Exchange, and from 2000 to 2001 he was President and CEO of Canoil Exploration Corporation, a publicly traded company. He has consulted for public companies since 2015. He earned a Bachelor of Science degree in Biology from the University of British Columbia in 1983.' },
+  { title: 'Sham Dhari', role: 'Director', text: 'Sham Dhari holds a Bachelor of Applied Science degree in Electrical Engineering from the University of British Columbia. His engineering experience spans the pulp and paper industry, technology research and development, and field applications. A certified energy advisor, he specializes in energy modelling and testing for single-family homes and multi-unit buildings, with a focus on energy efficiency, occupant comfort and sustainable building practices.' },
+  { title: 'Hans Edblad', role: 'Vice President, Business Development and Director', text: 'Hans Edblad served as a consultant to P2 Solar from 2006 to 2009 before joining the company. He has been President of Chag Investments Ltd., which assists businesses with business development and investment strategy, since 1997, and has consulted with APR Consulting Group on technical market strategy since 2002.' }
 );
-sections.find(item => item.slug === 'investors').blocks.push(
+const investorsSection = sections.find(item => item.slug === 'investors');
+investorsSection.intro = 'P2 Solar, Inc. is quoted on the OTC Markets under the symbol PTOS and reports to securities regulators in the United States and British Columbia.';
+investorsSection.blocks.unshift(
+  { title: 'Company at a glance', facts: [
+    ['Symbol', 'OTC: PTOS'],
+    ['Incorporated', 'State of Delaware'],
+    ['Head office', 'Surrey, British Columbia'],
+    ['Fiscal year end', 'March 31'],
+    ['Reporting', 'U.S. Securities and Exchange Commission; British Columbia Securities Commission (OTC reporting issuer under MI 51-105)']
+  ] },
+  { title: 'Filings and stock information', text: 'Annual and quarterly reports, material change reports and other continuous disclosure documents are available from the regulators’ public databases.', links: [
+    { href: 'https://www.sec.gov/edgar/browse/?CIK=1172069', label: 'SEC filings on EDGAR' },
+    { href: 'https://www.sedarplus.ca/', label: 'Canadian filings on SEDAR+' },
+    { href: 'https://www.otcmarkets.com/stock/PTOS/overview', label: 'PTOS quote on OTC Markets' }
+  ] },
+  { title: 'Investment highlights', heading: true }
+);
+investorsSection.blocks.push(
+  { title: 'Investor relations', heading: true },
+  { title: 'Investor contact', role: 'Raj-Mohinder S. Gurm, President and CEO', text: 'Shareholders may request corporate documents, including the Audit Committee Charter, by writing to the Corporate Secretary at the address below.', email: 'info@p2solar.com', emailSubject: 'Investor inquiry', phone: '778-321-0047', address: ['P2 Solar, Inc.', 'Attention: Corporate Secretary', '13718 91st Ave', 'Surrey, BC V3V 7X1'] },
   { title: 'Corporate governance', heading: true },
   { title: 'Audit Committee Charter', date: '2025-03-15', dateLabel: 'March 15, 2025', text: 'The charter sets out the Audit Committee’s purpose, authority, composition and oversight responsibilities for financial reporting, internal controls and the independent auditor.', file: 'audit-committee-charter-2025.pdf', fileLabel: 'Read the Audit Committee Charter (PDF)' },
 );
@@ -123,10 +142,16 @@ for (const slug of ['projects', 'careers']) {
 }
 const contactSection = sections.find(item => item.slug === 'contact');
 contactSection.intro = 'For company information, solar inquiries, research collaboration or investor relations, contact P2 Solar.';
-contactSection.blocks = [{ title: 'Contact P2 Solar', text: 'Tell us a little about your inquiry so we can direct it to the appropriate team.', email: 'info@p2solar.com' }];
+contactSection.blocks = [
+  { title: 'Solar consultation', text: 'Thinking about solar for your home, business or land? Send us your address, the type of property and a recent electricity bill if you have one, and Futricity Solar will follow up.', email: 'info@p2solar.com', emailSubject: 'Solar consultation request', emailLabel: 'Request a solar consultation' },
+  { title: 'General and investor inquiries', text: 'Questions about P2 Solar, its strategy or shareholder matters.', email: 'info@p2solar.com', emailSubject: 'General inquiry', phone: '778-321-0047' },
+  { title: 'Research partnerships', text: 'Researchers and institutions interested in collaborating with P2 CleanTech Labs.', email: 'info@p2solar.com', emailSubject: 'Research partnership inquiry', emailLabel: 'Contact P2 CleanTech Labs' },
+  { title: 'Mailing address', address: ['P2 Solar, Inc.', '13718 91st Ave', 'Surrey, British Columbia V3V 7X1', 'Canada'] }
+];
 const divisionLogos = { solutions: ['futricity.jpg', 'Futricity Solar Inc.'], research: ['p2-cleantech.jpg', 'P2 CleanTech Labs Inc.'] };
 const directory = document.querySelector('#directory-grid');
 newsSection.blocks.push(
+  { title: 'P2 Solar Launches R&D Initiative in Biological CO₂ Capture', date: '2025-09-04', dateLabel: 'September 4, 2025', text: 'The company announced a research and development initiative exploring the use of engineered bacteria, powered by solar energy, to capture atmospheric carbon dioxide and convert it into products such as fuels or chemicals. The release outlined plans for a laboratory-scale prototype, followed by a potential pilot plant and licensing model.' },
   { title: 'P2 Solar, Inc. Announces Launch of New Website', date: '2025-03-03', dateLabel: 'March 3, 2025', text: 'The company announced the launch of its updated website, providing information for investors and stakeholders. This is an archived announcement from March 2025.', file: 'press-release-2025-03-03.pdf', fileLabel: 'Read the full press release (PDF)' },
   { title: 'P2 Solar, Inc. Announces Appointment of New Director', date: '2024-01-11', dateLabel: 'January 11, 2024', text: 'The company announced the appointment of electrical engineer Sham Dhari to its board of directors.', file: 'press-release-2024-01-11.pdf', fileLabel: 'Read the full press release (PDF)' },
   { title: 'P2 Solar, Inc. Announces Completion of $110,000 Private Placement Under Partial Revocation Order', date: '2023-09-21', dateLabel: 'September 21, 2023', text: 'The company announced completion of a CA$110,000 convertible-debt private placement under a partial revocation order. See the original release for the terms and restrictions applicable at that time.', file: 'press-release-2023-09-21.pdf', fileLabel: 'Read the full press release (PDF)' },
@@ -196,10 +221,17 @@ function renderRoute() {
         ${section.blocks.map(block => block.heading ? `<h2 class="leadership-heading">${block.title}</h2>` : `
           <section class="route-item">
             <h2>${block.title}</h2>
+            ${block.role ? `<p class="route-role">${block.role}</p>` : ''}
             ${block.date ? `<time datetime="${block.date}">${block.dateLabel}</time>` : ''}
             ${block.text ? `<p>${block.text}</p>` : ''}
+            ${block.facts ? `<dl class="fact-list">${block.facts.map(([term, value]) => `<div><dt>${term}</dt><dd>${value}</dd></div>`).join('')}</dl>` : ''}
             ${block.list ? `<ul>${block.list.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
-            ${block.email ? `<a class="document-link" href="mailto:${block.email}">${block.email}</a>` : ''}
+            ${block.address ? `<address class="route-address">${block.address.join('<br />')}</address>` : ''}
+            ${block.email || block.phone || block.links ? `<div class="route-actions">
+              ${block.email ? `<a class="document-link" href="mailto:${block.email}${block.emailSubject ? `?subject=${encodeURIComponent(block.emailSubject)}` : ''}">${block.emailLabel || block.email}</a>` : ''}
+              ${block.phone ? `<a class="document-link" href="tel:+1${block.phone.replace(/\D/g, '')}">${block.phone}</a>` : ''}
+              ${block.links ? block.links.map(link => `<a class="document-link" href="${link.href}" target="_blank" rel="noopener">${link.label} <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>`).join('') : ''}
+            </div>` : ''}
             ${block.note ? `<p class="document-note">${block.note}</p>` : ''}
             ${block.file ? `<a class="document-link" href="./${block.file}" target="_blank" rel="noopener">${block.fileLabel} <span class="sr-only">(opens in a new tab)</span></a>` : ''}
           </section>
