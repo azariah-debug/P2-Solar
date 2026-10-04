@@ -125,7 +125,7 @@ investorsSection.blocks.unshift(
 );
 investorsSection.blocks.push(
   { title: 'Investor relations', heading: true },
-  { title: 'Investor contact', role: 'Raj-Mohinder S. Gurm, President and CEO', text: 'Shareholders may request corporate documents, including the Audit Committee Charter, by writing to the Corporate Secretary at the address below.', email: 'info@p2solar.com', emailSubject: 'Investor inquiry', phone: '778-321-0047', address: ['P2 Solar, Inc.', 'Attention: Corporate Secretary', '13718 91st Ave', 'Surrey, BC V3V 7X1'] },
+  { title: 'Investor contact', role: 'Raj-Mohinder S. Gurm, President and CEO', text: 'Shareholders may request corporate documents, including the Audit Committee Charter, by writing to the Corporate Secretary at the address below.', email: 'info@p2solar.com', emailSubject: 'Investor inquiry', phone: '778-321-0047', address: ['P2 Solar, Inc.', 'Attention: Corporate Secretary', '13718 91 Avenue', 'Surrey, BC V3V 7X1'] },
   { title: 'Corporate governance', heading: true },
   { title: 'Audit Committee Charter', date: '2025-03-15', dateLabel: 'March 15, 2025', text: 'The charter sets out the Audit Committee’s purpose, authority, composition and oversight responsibilities for financial reporting, internal controls and the independent auditor.', file: 'audit-committee-charter-2025.pdf', fileLabel: 'Read the Audit Committee Charter (PDF)' },
 );
@@ -146,7 +146,7 @@ contactSection.blocks = [
   { title: 'Solar consultation', text: 'Thinking about solar for your home, business or land? Send us your address, the type of property and a recent electricity bill if you have one, and Futricity Solar will follow up.', email: 'info@p2solar.com', emailSubject: 'Solar consultation request', emailLabel: 'Request a solar consultation' },
   { title: 'General and investor inquiries', text: 'Questions about P2 Solar, its strategy or shareholder matters.', email: 'info@p2solar.com', emailSubject: 'General inquiry', phone: '778-321-0047' },
   { title: 'Research partnerships', text: 'Researchers and institutions interested in collaborating with P2 CleanTech Labs.', email: 'info@p2solar.com', emailSubject: 'Research partnership inquiry', emailLabel: 'Contact P2 CleanTech Labs' },
-  { title: 'Mailing address', address: ['P2 Solar, Inc.', '13718 91st Ave', 'Surrey, British Columbia V3V 7X1', 'Canada'] }
+  { title: 'Mailing address', address: ['P2 Solar, Inc.', '13718 91 Avenue', 'Surrey, British Columbia V3V 7X1', 'Canada'] }
 ];
 const divisionLogos = { solutions: ['futricity.jpg', 'Futricity Solar Inc.'], research: ['p2-cleantech.jpg', 'P2 CleanTech Labs Inc.'] };
 const directory = document.querySelector('#directory-grid');
