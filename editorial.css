@@ -14,9 +14,9 @@
 .research-copy .button:focus-visible,.business-link:focus-visible { outline-offset:5px; }
 .section-heading > p,.directory-heading > p { text-wrap:pretty; }
 .footer-top h2 { text-wrap:balance; }
-/* A quiet reverse logo on the forest footer; keep the header in full color. */
+/* Original green logo on a transparent background. */
 .footer-logo { background:transparent; padding:0; border-radius:0; }
-.footer-logo .corporate-logo { filter:grayscale(1) invert(1) brightness(3); mix-blend-mode:screen; opacity:.88; }
+.footer-logo .corporate-logo { filter:none; mix-blend-mode:normal; opacity:1; }
 .route-item li + li { margin-top:.5rem; }
 .route-item .document-link { margin-top:.85rem; }
 .route-header h1 { text-wrap:balance; }
