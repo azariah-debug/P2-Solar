@@ -1,28 +1,50 @@
 # P2 Solar on Bluehost (Apache). GitHub Pages ignores this file.
-Options -Indexes
+Options -Indexes -MultiViews
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+FileETag None
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
   # Always use https://www.p2solar.com
   RewriteCond %{HTTPS} off [OR]
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^ https://www.p2solar.com%{REQUEST_URI} [L,R=301]
-  # Keep the build source and tooling private
-  RewriteRule ^(src/|build\.py|README\.md|\.git) - [F,L]
+
+  # A static site only needs to be read: refuse every other request method
+  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$
+  RewriteRule ^ - [R=405,L]
+
+  # Keep build source, tooling and hidden files private (except /.well-known/)
+  RewriteRule ^(src/|build\.py$|README\.md$) - [F,L]
+  RewriteRule (^|/)\.(?!well-known/) - [F,L]
+  RewriteRule \.(py|md|sh|bak|old|orig|log|sql|ini|env|zip|tar|gz)$ - [F,NC,L]
 </IfModule>
 
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
   Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), serial=(), browsing-topics=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+
   <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|pdf)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
   <FilesMatch "\.(html|xml|txt)$">
     Header set Cache-Control "public, max-age=600"
+  </FilesMatch>
+  # PDFs open in the browser, but never run as active content
+  <FilesMatch "\.pdf$">
+    Header set Content-Disposition "inline"
+    Header set X-Content-Type-Options "nosniff"
   </FilesMatch>
 </IfModule>
 
@@ -32,3 +54,5 @@ ErrorDocument 404 /404.html
 
 AddType image/webp .webp
 AddType image/svg+xml .svg
+AddType text/plain .txt
+AddDefaultCharset utf-8

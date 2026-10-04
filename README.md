@@ -37,6 +37,13 @@ Preview locally with `python3 -m http.server 4176` and open http://localhost:417
 - `sitemap.xml` and `robots.txt` for search engines, and `llms.txt`, a plain-language summary for AI assistants.
 - WebP images, one stylesheet, a deferred script and a preloaded hero image for fast loading.
 
+## Security
+
+- The site loads nothing from other servers: no third-party scripts, fonts or trackers.
+- A strict Content Security Policy lets pages run only the site's own script and styles. It is sent as a server header on Bluehost and as a page tag elsewhere.
+- `.htaccess` forces HTTPS, blocks framing (clickjacking), refuses anything but page reads, hides build files and dotfiles, and sets privacy-preserving referrer and permissions headers.
+- `/.well-known/security.txt` tells researchers where to report a vulnerability. Its expiry date renews each time the site is rebuilt.
+
 ## Hosting on Bluehost
 
 Upload everything except `src/`, `build.py` and `README.md` to `public_html`. The included `.htaccess` sends visitors to `https://www.p2solar.com`, enables compression and caching, adds security headers and shows `404.html` for missing pages.

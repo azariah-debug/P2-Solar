@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261004-polish2"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261004-secure"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -330,6 +330,8 @@ def head(page, url, root, extra=""):
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>{esc(page["title"])}</title>
   <meta name="description" content="{attr(page["description"])}" />
   <meta name="robots" content="{robots}" />
@@ -357,6 +359,14 @@ def head(page, url, root, extra=""):
 </head>"""
 
 
+def logo_html(root, lazy=False):
+    """The one P2 Solar logo, used in the header and the footer."""
+    loading = ' loading="lazy"' if lazy else ""
+    return (f'<picture><source type="image/webp" srcset="{root}images/logo.webp" />'
+            f'<img class="corporate-logo" src="{root}images/logo.png" width="360" height="134" '
+            f'alt="P2 Solar, Powering Change" decoding="async"{loading} /></picture>')
+
+
 def header(root, current=None):
     home = root or "./"
     links = "".join(
@@ -365,7 +375,7 @@ def header(root, current=None):
     contact_current = ' aria-current="page"' if current == "contact" else ""
     return f"""  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="brand" href="{home}" aria-label="P2 Solar home"><img class="corporate-logo" src="{root}p2-solar.jpg" width="440" height="160" alt="P2 Solar, Powering Change" /></a>
+    <a class="brand" href="{home}" aria-label="P2 Solar home">{logo_html(root)}</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
     <nav id="main-nav" aria-label="Primary navigation">
       {links}<a class="nav-contact" href="{root}contact/"{contact_current}>Get in touch <span aria-hidden="true">↗</span></a>
@@ -377,7 +387,7 @@ def footer(root):
     home = root or "./"
     return f"""  <footer>
     <div class="footer-top"><div><p class="eyebrow">A shared ambition</p><h2>Let’s move<br /><em>energy forward.</em></h2></div><a class="button button-primary" href="{root}contact/">Connect with P2 Solar <span aria-hidden="true">↗</span></a></div>
-    <div class="footer-bottom"><a class="brand footer-logo" href="{home}" aria-label="P2 Solar home"><picture><source type="image/webp" srcset="{root}images/logo-footer.webp" /><img class="corporate-logo" src="{root}p2-solar-transparent.png" width="600" height="224" alt="P2 Solar, Powering Change" loading="lazy" /></picture></a><p>Renewable energy today. Climate solutions for tomorrow.</p><nav aria-label="Footer navigation"><a href="{root}investors/">Investors</a><a href="{root}news/">News</a></nav></div>
+    <div class="footer-bottom"><a class="brand footer-logo" href="{home}" aria-label="P2 Solar home">{logo_html(root, lazy=True)}</a><p>Renewable energy today. Climate solutions for tomorrow.</p><nav aria-label="Footer navigation"><a href="{root}investors/">Investors</a><a href="{root}news/">News</a></nav></div>
     <div class="footer-legal">
       <p class="footer-note">© {YEAR} P2 Solar, Inc. · OTC: PTOS · {ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region_long"]} · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
       <p class="footer-disclaimer"><strong>Forward-looking statements.</strong> This website contains forward-looking statements, including statements about planned products, services, research and growth. They are based on current expectations and are subject to risks and uncertainties that could cause actual results to differ materially. Please refer to the risk factors in P2 Solar, Inc.’s filings with the U.S. Securities and Exchange Commission and on SEDAR+. P2 Solar, Inc. undertakes no obligation to update these statements except as required by law.</p>
@@ -634,6 +644,9 @@ def main():
           + "</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
     write("llms.txt", llms_txt())
+    expires = (datetime.date.today() + datetime.timedelta(days=365)).isoformat()
+    write(".well-known/security.txt",
+          f"Contact: mailto:{EMAIL}\nExpires: {expires}T00:00:00.000Z\nPreferred-Languages: en\nCanonical: {BASE}.well-known/security.txt\n")
     print("Built", 2 + len(PAGES), "pages")
 
 

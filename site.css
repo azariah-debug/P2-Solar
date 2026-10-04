@@ -809,3 +809,10 @@ footer .eyebrow,.footer-top h2 em { color:var(--lime-wash); }
 .route-item > p:last-of-type + .route-actions { margin-top:.35rem; }
 .document-link:focus-visible { outline:2px solid var(--forest); outline-offset:4px; border-radius:2px; }
 ::selection { background:var(--lime-wash); color:var(--forest-deep); }
+/* ---- One logo, top and bottom ---- */
+.brand picture { display:block; }
+.corporate-logo { mix-blend-mode:normal; height:auto; }
+.site-header .brand { background:transparent; }
+/* Same logo, same size, top and bottom */
+.corporate-logo,.footer-logo .corporate-logo { width:174px; }
+@media(max-width:700px) { .corporate-logo,.footer-logo .corporate-logo { width:148px; } }
