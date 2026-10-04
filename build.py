@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261004-seo"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261004-polish2"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -153,8 +153,8 @@ PAGES = [
      "eyebrow": "Futricity Solar", "headline": "Renewable energy solutions for homes and businesses.",
      "intro": "Futricity Solar provides end-to-end project management, from the first consultation through installation and commissioning.",
      "blocks": [{"title": s["name"], "text": s["text"], "list": s.get("list")} for s in SERVICES] + [
-         {"title": "Start with a consultation", "text": "Send your property address, the type of property and a recent electricity bill if you have one, and Futricity Solar will follow up.",
-          "links": [("contact/", "Request a solar consultation", False)]}],
+         {"cta": True, "title": "Start with a consultation", "text": "Send your property address, the type of property and a recent electricity bill if you have one, and Futricity Solar will follow up.",
+          "href": "contact/", "label": "Request a solar consultation"}],
      "faq": SOLUTIONS_FAQ, "faq_title": "Solar questions"},
 
     {"slug": "research", "nav": "Research", "type": "WebPage", "logo": ("p2-cleantech.jpg", "P2 CleanTech Labs Inc.", 864, 307),
@@ -166,11 +166,13 @@ PAGES = [
          {"title": "Current research stage", "text": "The organization is in the foundational research phase.", "list": ["Scientific literature review", "Technology assessment", "Commercial opportunity evaluation", "Intellectual property landscape review", "Research planning"]},
          {"title": "Academic partnership", "text": "The company is collaborating with a major Canadian university laboratory to evaluate carbon mitigation opportunities involving biological systems."},
          {"title": "Government-supported innovation", "text": "Grants and innovation programs support the evaluation of climate-focused technologies that may contribute to future emissions reductions."},
+         {"heading": "Areas of research interest"},
          {"title": "Biological carbon capture", "text": "Exploring biological mechanisms that naturally remove carbon from the atmosphere."},
          {"title": "Microbial carbon utilization", "text": "Assessing ways biological systems may contribute to carbon reduction pathways."},
          {"title": "Environmental biotechnology", "text": "Investigating technologies with potential environmental and climate applications."},
          {"title": "Synthetic biology", "text": "Evaluating future opportunities involving engineered biological systems designed to improve carbon mitigation capabilities."},
-         {"title": "Research roadmap", "text": "The roadmap outlines the intended progression of research. P2 CleanTech Labs is currently in the foundational research phase; the later stages are not presented as completed milestones.", "ordered": ["Literature review", "Technology assessment", "Research planning", "Proof-of-concept development", "Intellectual property evaluation", "Pilot program development", "Commercialization assessment"]},
+         {"roadmap": True, "title": "Research roadmap", "text": "The intended progression of the research. P2 CleanTech Labs is in the foundational phase; later stages are planned, not completed.",
+          "steps": ["Literature review", "Technology assessment", "Research planning", "Proof-of-concept development", "Intellectual property evaluation", "Pilot program development", "Commercialization assessment"], "current": 3},
      ]},
 
     {"slug": "investors", "nav": "Investors", "type": "WebPage",
@@ -187,11 +189,10 @@ PAGES = [
          {"title": "Climate innovation", "text": "Development of future opportunities through P2 CleanTech Labs."},
          {"title": "Partnerships and support", "text": "Collaboration with Canadian research institutions and innovation-backed research initiatives."},
          {"title": "Diversified strategy", "text": "Balancing operating business activities with long-term technology development."},
-         {"heading": "Investor relations"},
+         {"heading": "Investor relations and governance"},
          {"title": "Investor contact", "role": "Raj-Mohinder S. Gurm, President and CEO", "text": "Shareholders can request corporate documents by writing to the Corporate Secretary.",
           "address": ["P2 Solar, Inc.", "Attention: Corporate Secretary", "13718 91 Avenue", "Surrey, BC V3V 7X1"],
           "email": (EMAIL, "Investor inquiry", None), "phone": PHONE},
-         {"heading": "Corporate governance"},
          {"title": "Audit Committee Charter", "date": "2025-03-15", "text": "The charter sets out the Audit Committee’s purpose, authority, composition and oversight responsibilities for financial reporting, internal controls and the independent auditor.",
           "file": ("audit-committee-charter-2025.pdf", "Audit Committee Charter (PDF)")},
      ],
@@ -202,7 +203,7 @@ PAGES = [
      "description": "Press releases and announcements from P2 Solar, Inc. (OTC: PTOS), including research initiatives, regulatory updates and board appointments.",
      "eyebrow": "News & media", "headline": "Updates across the P2 Solar platform.",
      "intro": "Company announcements, newest first. Archived releases reflect information at their original publication dates; historical plans and regulatory statements should not be read as current status.",
-     "blocks": [{"title": n["title"], "id": n["id"], "date": n["date"], "text": n["text"],
+     "layout": "news-archive", "blocks": [{"title": n["title"], "id": n["id"], "date": n["date"], "text": n["text"],
                  "file": (n["file"], "Press release (PDF)") if n.get("file") else None} for n in NEWS]},
 
     {"slug": "contact", "nav": "Get in touch", "type": "ContactPage",
@@ -400,6 +401,19 @@ def faq_html(faq, root, title, eyebrow, lead, wrap=True):
     </section>"""
 
 
+ICONS = {
+    "next": '<svg class="link-icon icon-next" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>',
+    "out": '<svg class="link-icon icon-out" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg>',
+}
+
+
+def link_html(href, label, icon, new_tab=False):
+    """Content link with a drawn icon: next = another page on this site, out = opens elsewhere."""
+    extra = ' target="_blank" rel="noopener"' if new_tab else ""
+    note = '<span class="sr-only"> (opens in a new tab)</span>' if new_tab else ""
+    return f'<a class="document-link" href="{href}"{extra}><span class="link-label">{esc(label)}</span>{ICONS[icon]}{note}</a>'
+
+
 def block_html(b, root):
     if b.get("heading"):
         return f'        <h2 class="leadership-heading">{esc(b["heading"])}</h2>'
@@ -422,20 +436,63 @@ def block_html(b, root):
     actions = []
     if b.get("email"):
         address, subject, label = b["email"]
-        actions.append(f'<a class="document-link" href="mailto:{address}?subject={subject.replace(" ", "%20")}">{esc(label or address)}</a>')
+        actions.append(link_html(f"mailto:{address}?subject={subject.replace(' ', '%20')}", label or address, "out"))
     if b.get("phone"):
-        actions.append(f'<a class="document-link" href="tel:+1{"".join(c for c in b["phone"] if c.isdigit())}">{b["phone"]}</a>')
+        actions.append(link_html("tel:+1" + "".join(c for c in b["phone"] if c.isdigit()), b["phone"], "out"))
     for href, label, external in b.get("links") or []:
-        if external:
-            actions.append(f'<a class="document-link" href="{href}" target="_blank" rel="noopener">{esc(label)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>')
-        else:
-            actions.append(f'<a class="document-link" href="{root}{href}">{esc(label)}</a>')
+        actions.append(link_html(href if external else root + href, label, "out", new_tab=True) if external
+                       else link_html(root + href, label, "next"))
     if b.get("file"):
         path, label = b["file"]
-        actions.append(f'<a class="document-link" href="{root}{path}" target="_blank" rel="noopener">{esc(label)}<span class="sr-only"> (opens in a new tab)</span></a>')
+        actions.append(link_html(root + path, label, "out", new_tab=True))
     if actions:
         out.append('          <div class="route-actions">' + "".join(actions) + "</div>")
     out.append("        </section>")
+    return "\n".join(out)
+
+
+def cta_html(b, root):
+    return f"""      <aside class="route-cta" aria-labelledby="cta-title">
+        <div><h2 id="cta-title">{esc(b["title"])}</h2><p>{esc(b["text"])}</p></div>
+        <a class="button button-dark" href="{root}{b["href"]}">{esc(b["label"])}</a>
+      </aside>"""
+
+
+def roadmap_html(b):
+    steps = "".join(
+        f'<li class="{"is-current" if i < b["current"] else "is-planned"}"><span class="step-num">{i + 1:02d}</span><span class="step-name">{esc(name)}</span></li>'
+        for i, name in enumerate(b["steps"]))
+    return f"""      <section class="roadmap" aria-labelledby="roadmap-title">
+        <div class="roadmap-head"><h2 id="roadmap-title">{esc(b["title"])}</h2><p>{esc(b["text"])}</p></div>
+        <ol class="roadmap-steps">{steps}</ol>
+        <p class="roadmap-legend"><span><i class="legend-dot is-current" aria-hidden="true"></i>Foundational phase, under way</span><span><i class="legend-dot is-planned" aria-hidden="true"></i>Planned stages</span></p>
+      </section>"""
+
+
+def render_blocks(blocks, root, layout=None):
+    """Headings, CTA panels and the roadmap stand alone; other blocks are grouped into
+    grids whose column count fits the group, so no row ends with an empty column."""
+    out, group = [], []
+
+    def flush():
+        if not group:
+            return
+        n = len(group)
+        cols = 1 if layout else (3 if n == 3 else 1 if n == 1 else 2)
+        cls = f"route-grid cols-{cols}" + (f" {layout}" if layout else "")
+        out.append(f'      <div class="{cls}">\n' + "\n".join(block_html(b, root) for b in group) + "\n      </div>")
+        group.clear()
+
+    for b in blocks:
+        if b.get("heading"):
+            flush(); out.append(f'      <h2 class="leadership-heading">{esc(b["heading"])}</h2>')
+        elif b.get("cta"):
+            flush(); out.append(cta_html(b, root))
+        elif b.get("roadmap"):
+            flush(); out.append(roadmap_html(b))
+        else:
+            group.append(b)
+    flush()
     return "\n".join(out)
 
 
@@ -447,7 +504,7 @@ def inner_page(page):
     if page.get("logo"):
         src, alt, w, h = page["logo"]
         logo = f'      <div class="route-brand"><img src="{root}{src}" width="{w}" height="{h}" alt="{attr(alt)}" /></div>\n'
-    blocks = "\n".join(block_html(b, root) for b in page["blocks"])
+    blocks = render_blocks(page["blocks"], root, page.get("layout"))
     faq = ""
     if page.get("faq"):
         faq = "\n" + faq_html(page["faq"], root, esc(page["faq_title"]), "Questions", None, wrap=False)
@@ -464,9 +521,7 @@ def inner_page(page):
         </div>
         <p class="route-intro">{esc(page["intro"])}</p>
       </header>
-      <div class="route-grid">
-{blocks}
-      </div>{faq}
+{blocks}{faq}
     </article>
   </main>
 {footer(root)}

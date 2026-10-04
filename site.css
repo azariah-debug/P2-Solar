@@ -737,3 +737,75 @@ footer .eyebrow,.footer-top h2 em { color:var(--lime-wash); }
 .route-item ol { padding-left:1.4rem; margin:.75rem 0 0; color:var(--muted); font-size:1rem; }
 .route-item ol li + li { margin-top:.4rem; }
 .route-brand img { width:auto; }
+/* ---- Content links: one icon family across the site ---- */
+.route-actions { display:flex; flex-direction:column; align-items:flex-start; gap:0; margin-top:.5rem; }
+.document-link { display:inline-flex; align-items:center; gap:.5rem; min-height:44px; margin:0; font-weight:600; color:var(--brand-teal); text-decoration:none; line-height:1.4; }
+.document-link .link-label { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; text-decoration-color:color-mix(in srgb, currentColor 45%, transparent); transition:text-decoration-color .2s ease; }
+.document-link:hover .link-label,.document-link:focus-visible .link-label { text-decoration-color:currentColor; }
+.link-icon { width:20px; height:20px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s ease; }
+.document-link:hover .icon-next { transform:translateX(3px); }
+.document-link:hover .icon-out { transform:translate(2px,-2px); }
+@media(prefers-reduced-motion:reduce) { .link-icon { transition:none; } }
+/* ---- Content groups: equal-height rows so dividers line up ---- */
+.route-grid { display:grid; gap:0 3rem; align-items:stretch; margin:.75rem 0 0; }
+.route-grid.cols-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.route-grid.cols-3 { grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 2.5rem; }
+.route-grid.cols-1 { grid-template-columns:minmax(0,1fr); }
+.route-grid.cols-1 .route-item p { max-width:70ch; }
+.route-header + .route-grid { margin-top:1.25rem; }
+.leadership-heading { margin-top:3rem; padding-top:0; font-size:clamp(1.6rem,2.4vw,2rem); letter-spacing:-.03em; }
+
+/* Call-to-action panel */
+.route-cta { display:flex; align-items:center; justify-content:space-between; gap:2rem 3rem; flex-wrap:wrap; margin:3rem 0 0; padding:2rem 2.25rem; border-radius:6px; background:var(--forest); color:var(--paper-bright); }
+.route-cta h2 { font-size:clamp(1.5rem,2.2vw,1.9rem); letter-spacing:-.03em; margin-bottom:.5rem; color:var(--paper-bright); }
+.route-cta p { max-width:52ch; color:#d0ddce; font-size:1rem; line-height:1.6; }
+.route-cta .button { background:var(--lime-wash); color:var(--forest-deep); flex:none; }
+.route-cta .button:hover { background:#eef2e6; }
+.route-cta .button:focus-visible { outline:2px solid var(--lime-wash); outline-offset:3px; }
+
+/* Research roadmap: a real sequence, current phase marked */
+.roadmap { margin-top:3rem; padding-top:2rem; border-top:1px solid var(--line); }
+.roadmap-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:1rem 3rem; align-items:end; margin-bottom:1.75rem; }
+.roadmap-head h2 { font-size:clamp(1.6rem,2.4vw,2rem); letter-spacing:-.03em; }
+.roadmap-head p { color:var(--muted); max-width:56ch; }
+.roadmap-steps { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:.5rem; counter-reset:none; }
+.roadmap-steps li { display:flex; flex-direction:column; gap:.6rem; padding:1rem .9rem 1.1rem; border-top:3px solid var(--line); background:rgba(255,255,255,.35); border-radius:0 0 4px 4px; min-height:7.5rem; }
+.roadmap-steps li.is-current { border-top-color:var(--brand-leaf); background:#e7ecda; }
+.step-num { font-size:.75rem; font-weight:650; letter-spacing:.12em; color:var(--moss); font-variant-numeric:tabular-nums; }
+.is-current .step-num { color:var(--forest); }
+.step-name { font-size:.95rem; font-weight:550; line-height:1.35; letter-spacing:-.01em; color:var(--ink); text-wrap:balance; }
+.is-planned .step-name { color:var(--muted); }
+.roadmap-legend { display:flex; flex-wrap:wrap; gap:.5rem 1.75rem; margin-top:1rem; font-size:.875rem; color:var(--muted); }
+.roadmap-legend span { display:inline-flex; align-items:center; gap:.5rem; }
+.legend-dot { display:inline-block; width:14px; height:3px; border-radius:2px; background:var(--line); }
+.legend-dot.is-current { background:var(--brand-leaf); }
+
+/* News archive: date column + release */
+.news-archive .route-item { display:grid; grid-template-columns:11rem minmax(0,1fr); column-gap:2rem; align-content:start; padding:1.6rem 0; scroll-margin-top:1rem; }
+.news-archive .route-item > * { grid-column:2; }
+.news-archive .route-item > time { grid-column:1; grid-row:1; margin:0; padding-top:.2rem; font-variant-numeric:tabular-nums; }
+.news-archive .route-item h2 { font-size:1.2rem; max-width:48ch; }
+.news-archive .route-item:target { background:linear-gradient(90deg, #e7ecda, transparent 70%); }
+
+@media(max-width:1000px) {
+  .route-grid.cols-3 { grid-template-columns:minmax(0,1fr); }
+  .roadmap-steps { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+  .route-grid.cols-2,.route-grid.cols-3 { grid-template-columns:minmax(0,1fr); gap:0; }
+  .leadership-heading { margin-top:2.25rem; }
+  .route-cta { padding:1.5rem 1.25rem; margin-top:2.25rem; }
+  .route-cta .button { width:100%; justify-content:center; }
+  .roadmap-head { grid-template-columns:1fr; }
+  .roadmap-steps { grid-template-columns:minmax(0,1fr); gap:0; }
+  .roadmap-steps li { flex-direction:row; align-items:baseline; gap:1rem; min-height:0; border-top-width:0; border-left:3px solid var(--line); border-radius:0 4px 4px 0; padding:.85rem 1rem; margin-bottom:.35rem; }
+  .roadmap-steps li.is-current { border-left-color:var(--brand-leaf); }
+  .news-archive .route-item { grid-template-columns:minmax(0,1fr); }
+  .news-archive .route-item > *,.news-archive .route-item > time { grid-column:1; grid-row:auto; }
+  .news-archive .route-item > time { order:-1; margin-bottom:.35rem; }
+}
+.roadmap { border-top:0; padding-top:0; margin-top:3rem; }
+.route-actions { margin-top:.25rem; }
+.route-item > p:last-of-type + .route-actions { margin-top:.35rem; }
+.document-link:focus-visible { outline:2px solid var(--forest); outline-offset:4px; border-radius:2px; }
+::selection { background:var(--lime-wash); color:var(--forest-deep); }
