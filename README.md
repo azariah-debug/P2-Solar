@@ -26,7 +26,7 @@ python3 build.py
 
 This regenerates every page plus `sitemap.xml`, `robots.txt` and `llms.txt`, so search engines, structured data and AI assistants always match what is on the page. To add a press release, add it to `NEWS` in `build.py`, put the PDF in the site folder, and rebuild.
 
-Styles are in `site.css`; the small script for the mobile menu and animation toggle is `app.js`. After changing either, bump `VERSION` in `build.py` and rebuild so browsers fetch the new files.
+Styles are in `site.css`. Typography uses two self-hosted open-licence fonts in `fonts/` (Instrument Sans for headings and text, IBM Plex Mono for dates and labels) on one fluid type scale and one spacing scale, both defined as variables near the end of the file; the small script for the mobile menu and animation toggle is `app.js`. After changing either, bump `VERSION` in `build.py` and rebuild so browsers fetch the new files.
 
 Preview locally with `python3 -m http.server 4176` and open http://localhost:4176.
 

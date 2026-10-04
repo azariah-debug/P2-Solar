@@ -434,7 +434,7 @@ h2 em { font-family:inherit; font-style:normal; font-weight:inherit; color:var(-
 .directory-group-heading { border-left-color:var(--brand-leaf); }
 .route-item time { color:var(--brand-teal); }
 .business::before { opacity:.4; }
-.route-role { margin:-.35rem 0 .7rem; font-size:.875rem!important; font-weight:600; color:var(--brand-teal)!important; letter-spacing:.01em; }
+.route-role { margin:-.35rem 0 .7rem; font-size:var(--fs-sm); font-weight:600; color:var(--brand-teal); letter-spacing:.01em; }
 .route-actions { display:flex; flex-wrap:wrap; gap:0 1.5rem; }
 .route-address { font-style:normal; color:var(--muted); line-height:1.6; margin-top:.5rem; }
 .fact-list { margin:.25rem 0 0; display:grid; gap:0; }
@@ -816,3 +816,185 @@ footer .eyebrow,.footer-top h2 em { color:var(--lime-wash); }
 /* Same logo, same size, top and bottom */
 .corporate-logo,.footer-logo .corporate-logo { width:174px; }
 @media(max-width:700px) { .corporate-logo,.footer-logo .corporate-logo { width:148px; } }
+
+/* =====================================================================
+   Typography system
+   Instrument Sans (variable) for headings and text; IBM Plex Mono for
+   data: dates, labels, the ticker. One fluid scale from phone (390px)
+   to desktop (1440px); every step grows continuously, so tablet sizes
+   always sit between the two.
+   ===================================================================== */
+@font-face { font-family:"Instrument Sans"; src:url("fonts/instrument-sans.woff2") format("woff2-variations"), url("fonts/instrument-sans.woff2") format("woff2"); font-weight:400 700; font-stretch:75% 100%; font-style:normal; font-display:swap; }
+@font-face { font-family:"IBM Plex Mono"; src:url("fonts/plex-mono-400.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:"IBM Plex Mono"; src:url("fonts/plex-mono-500.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:swap; }
+
+:root {
+  --font-sans:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --fs-label:.75rem;                                        /* 12      mono uppercase labels */
+  --fs-meta:clamp(.8125rem,.79rem + .1vw,.875rem);          /* 13-14   dates, legal, captions */
+  --fs-sm:clamp(.875rem,.85rem + .1vw,.9375rem);            /* 14-15   navigation, buttons, roles */
+  --fs-base:clamp(1rem,.96rem + .17vw,1.125rem);            /* 16-18   body text */
+  --fs-lead:clamp(1.0625rem,.98rem + .36vw,1.3125rem);      /* 17-21   intros */
+  --fs-h5:clamp(1.0625rem,1rem + .27vw,1.25rem);            /* 17-20   list titles, questions */
+  --fs-h4:clamp(1.1875rem,1.1rem + .36vw,1.4375rem);        /* 19-23   item titles */
+  --fs-h3:clamp(1.5rem,1.3rem + .85vw,2.125rem);            /* 24-34   sub-sections, statements */
+  --fs-h2:clamp(2rem,1.5rem + 2.1vw,3.375rem);              /* 32-54   section headings */
+  --fs-h1:clamp(2.25rem,1.6rem + 2.75vw,4rem);              /* 36-64   page titles */
+  --fs-display:clamp(3rem,1.75rem + 5.2vw,5.75rem);         /* 48-92   homepage hero */
+}
+
+html body { font-family:var(--font-sans); font-size:var(--fs-base); line-height:1.6; font-kerning:normal; text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+html h1,html h2,html h3,html summary,html button { font-family:var(--font-sans); }
+html h1,html h2,html h3 { text-wrap:balance; }
+html p,html li,html dd { text-wrap:pretty; }
+
+/* Display and headings */
+html .hero h1 { font-size:var(--fs-display); line-height:.92; letter-spacing:-.04em; font-weight:640; font-stretch:92%; }
+html .route-header h1,html .notfound h1 { font-size:var(--fs-h1); line-height:1.02; letter-spacing:-.035em; font-weight:600; }
+html .section-heading h2,html .solar-lead h2,html .research-copy h2,html .news-heading h2,html .faq-heading h2,html .footer-top h2 { font-size:var(--fs-h2); line-height:1.02; letter-spacing:-.035em; font-weight:560; }
+html .leadership-heading,html .roadmap-head h2,html .route-cta h2,html .business h3 { font-size:var(--fs-h3); line-height:1.1; letter-spacing:-.028em; font-weight:580; }
+html .route-item h2,html .service-item h3 { font-size:var(--fs-h4); line-height:1.25; letter-spacing:-.018em; font-weight:590; }
+html .news-archive .route-item h2,html .faq-item summary,html .news-row strong { font-size:var(--fs-h5); line-height:1.35; letter-spacing:-.012em; font-weight:570; }
+html .intro-statement { font-size:var(--fs-h3); line-height:1.22; letter-spacing:-.024em; font-weight:450; }
+html .intro-statement span { display:block; }
+
+/* Running text */
+html .route-intro,html .hero-note,html .route-cta p,html .roadmap-head p,html .section-heading > p,html .faq-heading .route-intro { font-size:var(--fs-lead); line-height:1.5; letter-spacing:-.006em; }
+html .route-item p,html .route-item ul,html .route-item ol,html .route-item address,html .faq-item p,html .business > p,html .solar-lead > p:not(.eyebrow),html .research-copy > p:not(.eyebrow),html .intro-description,html .service-item p,html .fact-list dd { font-size:var(--fs-base); line-height:1.62; }
+html .route-item p,html .route-item ul,html .route-item ol,html .faq-item p { max-width:62ch; }
+html .route-intro { max-width:46ch; }
+html .hero-note { max-width:30rem; }
+html .route-item li + li { margin-top:.45rem; }
+
+/* Interface text */
+html .site-header nav a,html .menu-toggle,html .button,html .text-link,html .business-link,html .breadcrumb-nav li,html .breadcrumb-nav a { font-size:var(--fs-sm); letter-spacing:-.003em; }
+html .button,html .business-link,html .nav-contact { font-weight:560; }
+html .document-link { font-size:var(--fs-base); font-weight:580; }
+html .route-role { font-size:var(--fs-sm); font-weight:600; letter-spacing:0; line-height:1.45; }
+html .step-name { font-size:var(--fs-sm); font-weight:570; }
+html .roadmap-legend { font-size:var(--fs-meta); }
+html .footer-bottom nav a { font-size:var(--fs-sm); font-weight:500; }
+html .footer-bottom > p,html .footer-note,html .motion-toggle { font-size:var(--fs-meta); line-height:1.6; }
+html .footer-disclaimer { font-size:var(--fs-meta); line-height:1.65; max-width:96ch; }
+
+/* Data voice: labels, dates and the ticker in Plex Mono */
+html .eyebrow,html .business-label,html .fact-list dt,html .news-kind,html .step-num,html .art-caption { font-family:var(--font-mono); font-size:var(--fs-label); font-weight:500; letter-spacing:.1em; text-transform:uppercase; line-height:1.5; }
+html .route-item time,html .news-row time { font-family:var(--font-mono); font-size:var(--fs-meta); font-weight:400; letter-spacing:0; font-variant-numeric:tabular-nums; }
+html .business-tags span { font-family:var(--font-mono); font-size:var(--fs-label); letter-spacing:.06em; }
+
+/* =====================================================================
+   Spacing system
+   One side margin (the gutter) shared by header, hero, sections, inner
+   pages and footer, so every left edge lines up at every width. One
+   fluid vertical scale for section rhythm and heading-to-text gaps.
+   ===================================================================== */
+:root {
+  --content:1176px;
+  --gutter:clamp(1.25rem, .6rem + 2.6vw, 2.5rem);            /* 20 / 31 / 40 */
+  --max:calc(var(--content) + 2 * var(--gutter));
+  --space-3xs:.375rem;
+  --space-2xs:.5rem;
+  --space-xs:.75rem;
+  --space-s:clamp(1rem, .9rem + .4vw, 1.25rem);               /* 16-20 */
+  --space-m:clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);           /* 24-36 */
+  --space-l:clamp(2rem, 1.5rem + 2vw, 3.25rem);               /* 32-52 */
+  --space-xl:clamp(3rem, 2rem + 4vw, 5.5rem);                 /* 48-88 */
+  --space-section:clamp(3.5rem, 2.4rem + 4.6vw, 6.5rem);      /* 56-104 between homepage sections */
+}
+
+/* Shared side margin */
+html .site-header,html .section-wrap,html .intro,html .route-panel,html .hero-copy,html .notfound { max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter); box-sizing:border-box; }
+html footer { padding-inline:max(var(--gutter), calc((100% - var(--content)) / 2)); padding-block:var(--space-xl) var(--space-l); }
+html .research-copy { padding:var(--space-xl) var(--gutter); }
+
+/* Labels sit close to the heading they introduce */
+html .eyebrow { margin:0 0 var(--space-xs); }
+html .hero .eyebrow { margin-bottom:var(--space-s); }
+html .news-heading .eyebrow,html .faq-heading .eyebrow,html .route-header .eyebrow,html footer .eyebrow { margin-bottom:var(--space-xs); }
+
+/* Homepage rhythm */
+html .hero-copy { padding-block:var(--space-xl); }
+html .hero-note { margin:var(--space-m) 0 var(--space-m); }
+html .hero-actions { gap:var(--space-xs) var(--space-m); }
+html .intro { padding-block:var(--space-l); row-gap:var(--space-2xs); }
+html .businesses.section-wrap,html .latest-news.section-wrap { padding-block:var(--space-section) calc(var(--space-section) * .6); }
+html .businesses .section-heading { margin-bottom:var(--space-l); gap:var(--space-s) var(--space-xl); }
+html .section-heading > p { margin:0; }
+html .solar-feature.section-wrap { padding-block:calc(var(--space-section) * .6) var(--space-section); gap:var(--space-l) var(--space-xl); }
+html .solar-lead > p:not(.eyebrow) { margin:var(--space-s) 0 0; }
+html .service-lines > .service-item { padding-block:var(--space-s); gap:var(--space-s); }
+html .service-item h3 { margin-bottom:var(--space-3xs); }
+html .research-copy > p:not(.eyebrow) { margin:var(--space-s) 0 var(--space-m); }
+html .news-heading { margin-bottom:var(--space-m); gap:var(--space-s) var(--space-l); }
+html .news-row { padding-block:var(--space-s); }
+html .faq.section-wrap { padding-block:calc(var(--space-section) * .4) var(--space-section); }
+html .faq-heading { gap:var(--space-m) var(--space-xl); }
+html .faq-heading .route-intro { margin-top:var(--space-s); }
+html .faq-item summary { padding-block:var(--space-s); }
+html .faq-item p { margin:0 0 var(--space-m); }
+
+/* Company cards */
+html .business-grid .business h3 { font-size:clamp(1.75rem, 1.4rem + 1.3vw, 2.5rem); line-height:1.06; letter-spacing:-.035em; font-weight:600; margin:0 0 var(--space-s); }
+html .business-grid .business > p { font-size:var(--fs-base); line-height:1.62; padding-top:var(--space-s); }
+html .business-grid .business-link { font-size:var(--fs-sm); margin-top:var(--space-m); }
+
+/* Inner pages */
+html .route-panel { padding-block:var(--space-m) var(--space-xl); }
+html .breadcrumb-nav { margin-bottom:var(--space-xs); }
+html .route-brand { margin:0 0 var(--space-m); }
+html .route-header { padding:var(--space-l) clamp(1.25rem, .6rem + 2.6vw, 2.5rem); gap:var(--space-s) var(--space-xl); }
+html .route-header .eyebrow + h1 { margin-top:0; }
+html .route-header + .route-grid,html .route-header + .leadership-heading { margin-top:var(--space-m); }
+html .route-grid { margin-top:var(--space-2xs); column-gap:var(--space-xl); }
+html .route-grid.cols-3 { column-gap:var(--space-l); }
+html .route-item { padding-block:var(--space-m); }
+html .route-item h2 { margin:0 0 var(--space-2xs); }
+html .route-item .route-role { margin:calc(var(--space-3xs) * -1) 0 var(--space-xs); }
+html .route-item time { margin:0 0 var(--space-2xs); }
+html .route-item ul,html .route-item ol { margin-top:var(--space-xs); }
+html .route-item .route-actions { margin-top:var(--space-2xs); }
+html .route-address { margin-top:var(--space-xs); }
+html .leadership-heading { margin:var(--space-xl) 0 0; padding:0; }
+html .route-cta { margin-top:var(--space-xl); padding:var(--space-l) clamp(1.25rem, .6rem + 2.6vw, 2.5rem); gap:var(--space-m) var(--space-xl); }
+html .route-cta h2 { margin-bottom:var(--space-2xs); }
+html .roadmap { margin-top:var(--space-xl); }
+html .roadmap-head { margin-bottom:var(--space-m); gap:var(--space-xs) var(--space-xl); }
+html .roadmap-legend { margin-top:var(--space-s); }
+html .route-panel .faq { margin-top:var(--space-xl); padding-top:0; }
+html .news-archive .route-item { padding-block:var(--space-m); column-gap:var(--space-l); }
+
+/* Footer */
+html .footer-top { padding-bottom:var(--space-l); gap:var(--space-m); }
+html .footer-bottom { padding-top:var(--space-m); gap:var(--space-s) var(--space-l); }
+html .footer-legal { margin-top:var(--space-m); gap:var(--space-xs); }
+html .footer-legal .motion-toggle { font-size:var(--fs-meta); margin-top:var(--space-2xs); }
+
+@media(max-width:700px) {
+  html .business-grid .business > p { padding-top:var(--space-xs); }
+  html .faq-item summary { gap:var(--space-s); }
+}
+
+/* Refinements */
+html .hero h1 { letter-spacing:-.03em; }
+/* Skip link: fully hidden until a keyboard user focuses it */
+html .skip-link { top:var(--space-2xs); left:var(--space-2xs); }
+html .skip-link:not(:focus) { clip-path:inset(50%); width:1px; height:1px; overflow:hidden; white-space:nowrap; padding:0; }
+/* Section dividers stop at the content edges, like everything else */
+html .businesses { border-top:0; }
+html .intro { background:linear-gradient(var(--line),var(--line)) bottom center / calc(100% - 2 * var(--gutter)) 1px no-repeat; }
+/* Tablet: give headings and intros the full width instead of cramped half columns */
+@media(max-width:1020px) {
+  html .intro { grid-template-columns:minmax(0,1fr); }
+  html .intro > * { grid-column:1; grid-row:auto; }
+  html .intro-description { max-width:60ch; margin-top:var(--space-xs); }
+  html .businesses .section-heading { grid-template-columns:minmax(0,1fr); }
+  html .section-heading > p { max-width:52ch; }
+  html .fact-list > div { grid-template-columns:minmax(0,1fr); gap:var(--space-3xs); }
+  html .faq-heading { grid-template-columns:minmax(0,1fr); }
+  html .faq-heading .route-intro { max-width:52ch; }
+}
+html .hero-label span { white-space:nowrap; }
+@media(max-width:560px) { html .hero-label .label-sep { display:none; } html .hero-label span:last-child { display:block; } }
+@media(max-width:560px) { html .hero .hero-label { display:block; } }
+html .detail-view .site-header { border-bottom:0; background:linear-gradient(var(--line),var(--line)) bottom center / calc(100% - 2 * var(--gutter)) 1px no-repeat; }

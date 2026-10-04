@@ -25,7 +25,7 @@ FileETag None
 
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=31536000"
-  Header always set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
@@ -35,7 +35,7 @@ FileETag None
   Header always unset X-Powered-By
   Header unset X-Powered-By
 
-  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|pdf)$">
+  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|pdf|woff2)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
   <FilesMatch "\.(html|xml|txt)$">
@@ -56,3 +56,4 @@ AddType image/webp .webp
 AddType image/svg+xml .svg
 AddType text/plain .txt
 AddDefaultCharset utf-8
+AddType font/woff2 .woff2

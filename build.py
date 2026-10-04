@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261004-secure"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261004-type"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -330,7 +330,7 @@ def head(page, url, root, extra=""):
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>{esc(page["title"])}</title>
   <meta name="description" content="{attr(page["description"])}" />
@@ -354,7 +354,8 @@ def head(page, url, root, extra=""):
   <link rel="icon" href="{root}favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="{root}apple-touch-icon.png" />
   <link rel="alternate" type="text/plain" href="{root}llms.txt" title="LLM-readable site summary" />
-{extra}  <link rel="stylesheet" href="{root}site.css?v={VERSION}" />
+{extra}  <link rel="preload" href="{root}fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="{root}site.css?v={VERSION}" />
   <script type="application/ld+json">{page_schema(page, url)}</script>
 </head>"""
 
