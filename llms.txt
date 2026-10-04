@@ -1,0 +1,39 @@
+# P2 Solar, Inc.
+
+> P2 Solar, Inc. (OTC: PTOS) is a publicly traded clean technology company headquartered in Surrey, British Columbia, Canada. It designs and installs residential and commercial solar energy systems through its subsidiary Futricity Solar, and researches biological approaches to carbon mitigation through P2 CleanTech Labs.
+
+Key facts:
+- Legal name: P2 Solar, Inc.; quoted on the OTC Markets as PTOS
+- Incorporated in the State of Delaware; head office in Surrey, British Columbia
+- Fiscal year end: March 31
+- Reports to the U.S. Securities and Exchange Commission (CIK 1172069) and the British Columbia Securities Commission
+- Subsidiaries: Futricity Solar (solar installation) and P2 CleanTech Labs (carbon mitigation research)
+- Contact: info@p2solar.com; 13718 91 Avenue, Surrey, BC V3V 7X1, Canada
+
+## Pages
+
+- [About P2 Solar](https://www.p2solar.com/about/): P2 Solar, Inc. is a Surrey, BC clean technology company. Meet the board, the operating companies Futricity Solar and P2 CleanTech Labs, and our mission.
+- [Futricity Solar](https://www.p2solar.com/solutions/): Futricity Solar designs and installs rooftop, commercial and ground-mounted solar, battery storage and EV charging across British Columbia.
+- [P2 CleanTech Labs](https://www.p2solar.com/research/): P2 CleanTech Labs, the research arm of P2 Solar, is evaluating biological carbon capture and microbial carbon utilization with a Canadian university lab.
+- [Investors](https://www.p2solar.com/investors/): Investor information for P2 Solar, Inc. (OTC: PTOS): company facts, SEC and SEDAR+ filings, governance documents and investor relations contact.
+- [News & media](https://www.p2solar.com/news/): Press releases and announcements from P2 Solar, Inc. (OTC: PTOS), including research initiatives, regulatory updates and board appointments.
+- [Contact](https://www.p2solar.com/contact/): Contact P2 Solar in Surrey, BC to request a solar consultation, discuss research partnerships with P2 CleanTech Labs, or reach investor relations.
+
+## Filings
+
+- [SEC filings on EDGAR](https://www.sec.gov/edgar/browse/?CIK=1172069)
+- [Canadian filings on SEDAR+](https://www.sedarplus.ca/)
+- [PTOS on OTC Markets](https://www.otcmarkets.com/stock/PTOS/overview)
+
+## Press releases
+
+- [P2 Solar Launches R&D Initiative in Biological CO₂ Capture](https://www.p2solar.com/news/#co2-capture-initiative) (September 4, 2025): The company announced a research and development initiative exploring the use of engineered bacteria, powered by solar energy, to capture atmospheric carbon dioxide and convert it into products such as fuels or chemicals. The release outlined plans for a laboratory-scale prototype, followed by a potential pilot plant and licensing model.
+- [P2 Solar, Inc. Announces Launch of New Website](https://www.p2solar.com/press-release-2025-03-03.pdf) (March 3, 2025): The company announced the launch of its updated website, providing information for investors and stakeholders.
+- [P2 Solar Announces Revocation of the Cease Trade Order by British Columbia Securities Commission](https://www.p2solar.com/press-release-2025-01-24.pdf) (January 24, 2025): The British Columbia Securities Commission revoked the 2015 cease trade order on P2 Solar’s securities. The release also updates shareholders on corporate activity, the acquisition of Futricity Solar and historical financial information.
+- [P2 Solar, Inc. Announces Appointment of New Director](https://www.p2solar.com/press-release-2024-01-11.pdf) (January 11, 2024): The company announced the appointment of electrical engineer Sham Dhari to its board of directors.
+- [P2 Solar, Inc. Announces Completion of $110,000 Private Placement Under Partial Revocation Order](https://www.p2solar.com/press-release-2023-09-21.pdf) (September 21, 2023): The company announced completion of a CA$110,000 convertible-debt private placement under a partial revocation order.
+- [P2 Solar, Inc. Announces Filing 2023 Annual Report and Private Placement Under Partial Revocation Order](https://www.p2solar.com/press-release-2023-08-28.pdf) (August 28, 2023): The company reported filing its annual and interim reports and provided a progress update on its private placement under a partial revocation order.
+
+## Optional
+
+- [Audit Committee Charter, March 15, 2025](https://www.p2solar.com/audit-committee-charter-2025.pdf)
