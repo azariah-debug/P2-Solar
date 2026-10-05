@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261004-co2"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261005-icon"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -351,7 +351,9 @@ def head(page, url, root, extra=""):
   <meta name="twitter:title" content="{attr(page["title"])}" />
   <meta name="twitter:description" content="{attr(page["description"])}" />
   <meta name="twitter:image" content="{BASE}p2-solar-hero-v2.jpg" />
-  <link rel="icon" href="{root}favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="{root}favicon.ico" sizes="48x48" />
+  <link rel="icon" href="{root}favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="{root}images/icon-192.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="{root}apple-touch-icon.png" />
   <link rel="alternate" type="text/plain" href="{root}llms.txt" title="LLM-readable site summary" />
 {extra}  <link rel="preload" href="{root}fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />

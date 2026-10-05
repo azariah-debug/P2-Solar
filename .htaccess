@@ -35,7 +35,7 @@ FileETag None
   Header always unset X-Powered-By
   Header unset X-Powered-By
 
-  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|pdf|woff2)$">
+  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|pdf|woff2|ico)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
   <FilesMatch "\.(html|xml|txt)$">
@@ -57,3 +57,4 @@ AddType image/svg+xml .svg
 AddType text/plain .txt
 AddDefaultCharset utf-8
 AddType font/woff2 .woff2
+AddType image/x-icon .ico
