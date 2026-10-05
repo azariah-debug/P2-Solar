@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261004-type"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261004-color"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -198,7 +198,7 @@ PAGES = [
      ],
      "faq": INVESTOR_FAQ, "faq_title": "Investor questions"},
 
-    {"slug": "news", "nav": "News", "type": "CollectionPage",
+    {"slug": "news", "nav": "News & media", "type": "CollectionPage",
      "title": "News and Press Releases | P2 Solar, Inc.",
      "description": "Press releases and announcements from P2 Solar, Inc. (OTC: PTOS), including research initiatives, regulatory updates and board appointments.",
      "eyebrow": "News & media", "headline": "Updates across the P2 Solar platform.",
@@ -222,7 +222,7 @@ PAGES = [
      ]},
 ]
 
-HEADER_NAV = ["about", "solutions", "research", "investors"]  # plus the "Get in touch" button
+HEADER_NAV = ["about", "solutions", "research", "investors", "news"]  # plus the "Get in touch" button
 
 
 def date_label(iso):
@@ -336,7 +336,7 @@ def head(page, url, root, extra=""):
   <meta name="description" content="{attr(page["description"])}" />
   <meta name="robots" content="{robots}" />
   <link rel="canonical" href="{url}" />
-  <meta name="theme-color" content="#22362d" />
+  <meta name="theme-color" content="#183124" />
   <meta property="og:type" content="{og_type}" />
   <meta property="og:site_name" content="P2 Solar" />
   <meta property="og:locale" content="en_CA" />
