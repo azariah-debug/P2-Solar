@@ -1176,3 +1176,24 @@ html .route-header { background:radial-gradient(120% 150% at 100% 0%, rgba(202,2
 /* Hero scrim in the forest palette; on phones it reaches higher so the label stays legible over sky */
 html .hero::before { background:linear-gradient(90deg,rgba(14,34,24,.9),rgba(14,34,24,.64) 40%,rgba(14,34,24,.04) 76%); }
 @media(max-width:700px) { html .hero::before { background:linear-gradient(0deg,rgba(14,34,24,.96),rgba(14,34,24,.74) 55%,rgba(14,34,24,.38) 78%,rgba(14,34,24,.06) 100%); } }
+
+/* CO2 orbit dots match the atom icon's electrons: same fill, same thin pale rim */
+html .orbit-traveler::after { background:var(--stone-400); box-shadow:0 0 0 1.5px var(--stone-100); width:9px; height:9px; }
+/* Equal space above and below the CO2 panel: the last service row's own padding is
+   subtracted so text-to-panel matches panel-to-text at every width */
+html .solar-feature.section-wrap { padding-bottom:calc(var(--space-section) - var(--space-s)); }
+
+/* Phones: the CO2 movement sits exactly centred between the text above it and the
+   "P2 CleanTech Labs" text below it. Ring group = 1.25 x ring size (offsets -8% / +17%). */
+@media(max-width:700px) {
+  html .research-art {
+    --orb:180px; --ring-gap:var(--space-s); --cap:1.125rem; --cap-pad:var(--space-m);
+    --top:calc(var(--ring-gap) + var(--cap) + var(--cap-pad) + var(--space-xl) - var(--space-section));
+    display:block; min-height:0; padding:0;
+    height:calc(var(--top) + 1.25 * var(--orb) + var(--ring-gap) + var(--cap) + var(--cap-pad));
+  }
+  html .research-art .orbit { width:var(--orb); left:calc(50% - var(--orb) / 2); top:calc(var(--top) + .08 * var(--orb)); }
+  html .research-art .orbit-center { position:absolute; left:0; right:0; text-align:center; top:calc(var(--top) + .08 * var(--orb) + var(--orb) / 2); transform:translateY(-50%); line-height:1; }
+  html .research-art .art-caption { position:absolute; left:0; right:0; bottom:auto; text-align:center; top:calc(var(--top) + 1.25 * var(--orb) + var(--ring-gap)); line-height:1.5; margin:0; }
+  html .research-copy { padding-top:var(--space-xl); }
+}

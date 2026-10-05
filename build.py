@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261004-color"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261004-co2"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
