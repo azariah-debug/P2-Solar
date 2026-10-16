@@ -1,2 +1,1 @@
-/* Without JavaScript the film cannot be scaled on narrower screens; the company card below it still shows. */
-@media (max-width:1239.98px) { .p2f-stage { display:none; } }
+/* The full company card stays in the film. Container sizing supplies the no-script scale. */
