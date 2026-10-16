@@ -20,7 +20,7 @@ PHONE = "778-321-0047"
 PHONE_INTL = "+1-778-321-0047"
 ADDRESS = {"street": "13718 91 Avenue", "city": "Surrey", "region": "BC", "region_long": "British Columbia",
            "postal": "V3V 7X1", "country": "CA"}
-EDGAR = "https://www.sec.gov/edgar/browse/?CIK=1172069"
+OTC_REPORTING = "https://www.otcmarkets.com/stock/PTOS/overview"
 SEDAR = "https://www.sedarplus.ca/"
 OTC = "https://www.otcmarkets.com/stock/PTOS/overview"
 
@@ -73,15 +73,15 @@ DIRECTORS = [
      "text": "Raj-Mohinder S. Gurm’s career spans international trade, operations management, telecommunications and public-company leadership. He has been President and CEO of Spectrum International Inc. since 1990. In 1995 he founded Xanatel Communications Inc., a wireless communications company later sold to a company listed on the Alberta Stock Exchange, and from 2000 to 2001 he was President and CEO of Canoil Exploration Corporation, a publicly traded company. He has consulted for public companies since 2015. He earned a Bachelor of Science degree in Biology from the University of British Columbia in 1983."},
     {"name": "Sham Dhari", "role": "Director", "job": "Director", "alumni": "University of British Columbia",
      "text": "Sham Dhari holds a Bachelor of Applied Science degree in Electrical Engineering from the University of British Columbia. His engineering experience spans the pulp and paper industry, technology research and development, and field applications. A certified energy advisor, he specializes in energy modelling and testing for single-family homes and multi-unit buildings, with a focus on energy efficiency, occupant comfort and sustainable building practices."},
-    {"name": "Hans Edblad", "role": "Vice President, Business Development and Director",
-     "job": "Vice President, Business Development",
+    {"name": "Hans Edblad", "role": "Director",
+     "job": "Director",
      "text": "Hans Edblad served as a consultant to P2 Solar from 2006 to 2009 before joining the company. He has been President of Chag Investments Ltd., which assists businesses with business development and investment strategy, since 1997, and has consulted with APR Consulting Group on technical market strategy since 2002."},
 ]
 
 SERVICES = [
     {"name": "Residential solar", "service": "Residential solar installation",
      "text": "Designed to lower utility costs, improve energy independence and reduce household carbon footprints.",
-     "list": ["Rooftop solar installations", "Battery system integration", "EV charger integration", "Net metering support", "System monitoring"]},
+     "list": ["Rooftop solar installations", "Battery system integration", "EV charger integration", "Self-Generation Service support", "System monitoring"]},
     {"name": "Commercial solar", "service": "Commercial solar installation",
      "text": "Solar applications for office buildings, retail centres, warehouses, farms, agricultural facilities and industrial properties.",
      "list": ["Reduced operating expenses", "Long-term energy savings", "Improved ESG performance", "Sustainability leadership"]},
@@ -96,9 +96,9 @@ HOME_FAQ = [
     ("What does P2 Solar do?",
      "P2 Solar, Inc. is a publicly traded clean technology company headquartered in Surrey, British Columbia. It designs and installs residential and commercial solar energy systems through its subsidiary Futricity Solar, and explores biological approaches to carbon mitigation through P2 CleanTech Labs."),
     ("Is P2 Solar a public company?",
-     "Yes. P2 Solar, Inc. is quoted on the OTC Markets under the symbol PTOS. It is incorporated in Delaware and reports to the U.S. Securities and Exchange Commission and the British Columbia Securities Commission. See the <a href=\"{root}investors/\">investor page</a> for filings."),
+     "Yes. P2 Solar, Inc. is quoted on the OTC Markets under the symbol PTOS. It is incorporated in Delaware. For company filings, see SEDAR+ (Canada) and the OTC Markets Alternative Reporting System (USA). See the <a href=\"{root}investors/\">investor page</a> for filings."),
     ("What solar services does Futricity Solar offer?",
-     "Futricity Solar handles rooftop solar for homes and businesses, ground-mounted systems, battery energy storage and EV charger integration, along with net metering support and system monitoring. It manages each project from the first consultation through installation and commissioning."),
+     "Futricity Solar handles rooftop solar for homes and businesses, ground-mounted systems, battery energy storage and EV charger integration, along with Self-Generation Service support and system monitoring. It manages each project from the first consultation through installation and commissioning."),
     ("Where does Futricity Solar install solar systems?",
      "Futricity Solar is based in British Columbia, where P2 Solar is focusing on building its solar installation business."),
     ("What is P2 CleanTech Labs researching?",
@@ -110,8 +110,8 @@ HOME_FAQ = [
 SOLUTIONS_FAQ = [
     ("Does Futricity Solar install battery storage?",
      "Yes. Futricity Solar integrates battery storage with solar systems for backup power, load management and peak-demand reduction."),
-    ("Can Futricity Solar help with net metering?",
-     "Yes. Net metering support is part of Futricity Solar’s residential service, alongside rooftop installation, EV charger integration and system monitoring."),
+    ("Can Futricity Solar help with the Self-Generation Service?",
+     "Yes. Self-Generation Service support is part of Futricity Solar’s residential service, alongside rooftop installation, EV charger integration and system monitoring."),
     ("What if my roof is not suitable for solar?",
      "Ground-mounted systems are an option where rooftop space is limited, including agricultural properties, rural land, community solar and commercial developments."),
 ]
@@ -120,7 +120,7 @@ INVESTOR_FAQ = [
     ("What is P2 Solar’s stock symbol?",
      "P2 Solar, Inc. is quoted on the OTC Markets under the symbol PTOS."),
     ("Where can I find P2 Solar’s financial statements and filings?",
-     "Annual and quarterly reports are filed with the U.S. Securities and Exchange Commission and are available on EDGAR under CIK 1172069. Canadian continuous disclosure documents are available on SEDAR+. Links to both are in Filings and stock information on this page."),
+     "Find company filings through SEDAR+ (Canada) and the OTC Markets Alternative Reporting System (USA). Use the SEDAR+ portal to search for P2 Solar, Inc.; the OTC Markets link opens the PTOS company profile."),
     ("When does P2 Solar’s fiscal year end?",
      "P2 Solar’s fiscal year ends on March 31."),
     ("Is the British Columbia cease trade order still in effect?",
@@ -177,13 +177,13 @@ PAGES = [
 
     {"slug": "investors", "nav": "Investors", "type": "WebPage",
      "title": "Investors | P2 Solar, Inc. (OTC: PTOS)",
-     "description": "Investor information for P2 Solar, Inc. (OTC: PTOS): company facts, SEC and SEDAR+ filings, governance documents and investor relations contact.",
+     "description": "Investor information for P2 Solar, Inc. (OTC: PTOS): company facts, SEDAR+ and OTC Markets filings, governance documents and investor relations contact.",
      "eyebrow": "Investors", "headline": "Exposure to deployment and innovation.",
      "intro": "Corporate information, regulatory filings and governance documents for shareholders and prospective investors.",
      "blocks": [
-         {"title": "Company at a glance", "facts": [("Symbol", "OTC: PTOS"), ("Incorporated", "State of Delaware"), ("Head office", "Surrey, British Columbia"), ("Fiscal year end", "March 31"), ("Reporting", "U.S. Securities and Exchange Commission; British Columbia Securities Commission (OTC reporting issuer under MI 51-105)")]},
-         {"title": "Filings and stock information", "text": "Annual and quarterly reports, material change reports and other continuous disclosure documents are available from the regulators’ public databases.",
-          "links": [(EDGAR, "SEC filings on EDGAR", True), (SEDAR, "Canadian filings on SEDAR+", True), (OTC, "PTOS quote on OTC Markets", True)]},
+         {"title": "Company at a glance", "facts": [("Symbol", "OTC: PTOS"), ("Incorporated", "State of Delaware"), ("Head office", "Surrey, British Columbia"), ("Fiscal year end", "March 31"), ("Reporting", "SEDAR+ (Canada); OTC Markets Alternative Reporting System (USA)")]},
+         {"title": "Filings and stock information", "text": "Find company disclosures through SEDAR+ (Canada) and the OTC Markets Alternative Reporting System (USA). Search for P2 Solar, Inc. on SEDAR+; the OTC link opens the PTOS company profile.",
+          "links": [(OTC_REPORTING, "OTC Markets Alternative Reporting System (USA)", True), (SEDAR, "SEDAR+ (Canada)", True), (OTC, "PTOS quote on OTC Markets", True)]},
          {"heading": "Investment highlights"},
          {"title": "Renewable energy growth", "text": "Participation in growing solar markets through Futricity Solar."},
          {"title": "Climate innovation", "text": "Development of future opportunities through P2 CleanTech Labs."},
@@ -249,7 +249,7 @@ def organization():
             {"@type": "ContactPoint", "contactType": "investor relations", "email": EMAIL, "telephone": PHONE_INTL, "availableLanguage": "en"},
         ],
         "subOrganization": [{"@id": FUTRICITY_ID}, {"@id": LABS_ID}],
-        "sameAs": [EDGAR, OTC],
+        "sameAs": [OTC],
     }
 
 
@@ -393,7 +393,7 @@ def footer(root):
     <div class="footer-bottom"><a class="brand footer-logo" href="{home}" aria-label="P2 Solar home">{logo_html(root, lazy=True)}</a><p>Renewable energy today. Climate solutions for tomorrow.</p><nav aria-label="Footer navigation"><a href="{root}investors/">Investors</a><a href="{root}news/">News</a></nav></div>
     <div class="footer-legal">
       <p class="footer-note">© {YEAR} P2 Solar, Inc. · OTC: PTOS · {ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region_long"]} · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-      <p class="footer-disclaimer"><strong>Forward-looking statements.</strong> This website contains forward-looking statements, including statements about planned products, services, research and growth. They are based on current expectations and are subject to risks and uncertainties that could cause actual results to differ materially. Please refer to the risk factors in P2 Solar, Inc.’s filings with the U.S. Securities and Exchange Commission and on SEDAR+. P2 Solar, Inc. undertakes no obligation to update these statements except as required by law.</p>
+      <p class="footer-disclaimer"><strong>Forward-looking statements.</strong> This website contains forward-looking statements, including statements about planned products, services, research and growth. They are based on current expectations and are subject to risks and uncertainties that could cause actual results to differ materially. Please refer to the risk factors in P2 Solar, Inc.’s disclosures available through SEDAR+ and the OTC Markets Alternative Reporting System. P2 Solar, Inc. undertakes no obligation to update these statements except as required by law.</p>
       <button class="motion-toggle" type="button" aria-pressed="false">Pause animations</button>
     </div>
   </footer>
@@ -620,7 +620,7 @@ def llms_txt():
         "- Legal name: P2 Solar, Inc.; quoted on the OTC Markets as PTOS",
         "- Incorporated in the State of Delaware; head office in Surrey, British Columbia",
         "- Fiscal year end: March 31",
-        "- Reports to the U.S. Securities and Exchange Commission (CIK 1172069) and the British Columbia Securities Commission",
+        "- Disclosure sources: SEDAR+ (Canada) and OTC Markets Alternative Reporting System (USA)",
         "- Subsidiaries: Futricity Solar (solar installation) and P2 CleanTech Labs (carbon mitigation research)",
         f"- Contact: {EMAIL}; 13718 91 Avenue, Surrey, BC V3V 7X1, Canada",
         "",
@@ -629,7 +629,7 @@ def llms_txt():
     ]
     for p in PAGES:
         lines.append(f"- [{p['eyebrow']}]({BASE}{p['slug']}/): {p['description']}")
-    lines += ["", "## Filings", "", f"- [SEC filings on EDGAR]({EDGAR})", f"- [Canadian filings on SEDAR+]({SEDAR})",
+    lines += ["", "## Filings", "", f"- [OTC Markets Alternative Reporting System (USA)]({OTC_REPORTING})", f"- [SEDAR+ (Canada)]({SEDAR})",
               f"- [PTOS on OTC Markets]({OTC})", "", "## Press releases", ""]
     for n in NEWS:
         link = BASE + n["file"] if n.get("file") else f"{BASE}news/#{n['id']}"
