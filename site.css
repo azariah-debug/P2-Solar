@@ -1288,14 +1288,12 @@ html .solar-feature.section-wrap { padding-bottom:calc(var(--space-section) - va
   .p2f-stage { border-radius:8px; }
 }
 
-/* Stable controls: reserve the same row before loading, during playback and at the end. */
-.p2f-controls { display:grid; grid-template-columns:11.5rem minmax(0,1fr); max-width:28rem; align-items:stretch; min-height:2.4rem; }
+/* One quiet playback control; fixed row keeps the page steady in every state. */
+.p2f-controls { display:grid; grid-template-columns:1fr; align-items:center; height:44px; min-height:44px; }
 .p2f-controls[hidden] { display:grid; visibility:hidden; }
-.p2f-controls .p2f-btn { box-sizing:border-box; min-height:2.4rem; }
-.p2f-controls .p2f-btn[hidden] { display:block; visibility:hidden; }
 .p2f-controls .p2f-status { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0; }
+.p2f-controls .p2f-toggle { position:relative; align-self:center; justify-self:start; width:auto; height:auto; min-height:0; margin:0; padding:2px 6px; border:0; border-radius:0; background:transparent; box-shadow:none; font-size:12px; line-height:1.2; font-weight:400; color:var(--muted); white-space:nowrap; }
+.p2f-controls .p2f-toggle::after { content:""; position:absolute; top:50%; left:50%; width:max(100%,44px); height:44px; transform:translate(-50%,-50%); }
+.p2f-controls .p2f-toggle:hover { text-decoration:underline; text-underline-offset:.2em; }
+.p2f-controls .p2f-toggle:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
 .p2f-arrow { width:1em; height:1em; display:inline-block; vertical-align:-.125em; margin-left:.15em; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
-@media (max-width:480px) {
-  .p2f-controls { grid-template-columns:8rem minmax(0,1fr); gap:.6rem; min-height:3.5rem; }
-  .p2f-controls .p2f-btn { min-height:3.5rem; padding:.6rem .65rem; }
-}

@@ -10,7 +10,6 @@
   const stage = root.querySelector('.p2f-stage');
   const controls = root.querySelector('.p2f-controls');
   const toggle = root.querySelector('.p2f-toggle');
-  const skip = root.querySelector('.p2f-skip');
 
   // scale the 1920 × 1080 film to the stage with one CSS variable (CSSOM, allowed by the CSP)
   const fit = () => root.style.setProperty('--p2f-k', (stage.clientWidth / 1920).toFixed(5));
@@ -46,7 +45,6 @@
   };
 
   toggle.textContent = 'Play animation';
-  skip.hidden = true;
   controls.hidden = false;
   toggle.addEventListener('click', () => {
     if (window.P2Film && window.P2Film.ready) return;   // the film's own handler takes over

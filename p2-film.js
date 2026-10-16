@@ -187,7 +187,6 @@ window.P2Film = {
     /* ---------- playback: one viewport-triggered play, pause off-screen, controls, final card holds ---------- */
     const controls = $('.p2f-controls');
     const toggle = $('.p2f-toggle');
-    const skipBtn = $('.p2f-skip');
     const status = $('.p2f-status');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)');
     const sitePaused = () => document.body.classList.contains('motion-paused');
@@ -199,7 +198,6 @@ window.P2Film = {
     const LABEL = { poster: 'Play animation', playing: 'Pause', paused: 'Play', ended: 'Replay' };
     const render = () => {
       toggle.textContent = LABEL[state];
-      skipBtn.hidden = state === 'ended' || state === 'poster';
     };
     const say = text => { status.textContent = text; };
     const set = s => { state = s; render(); };
@@ -232,7 +230,6 @@ window.P2Film = {
       userOptIn = true;
       play(state === 'ended' || state === 'poster');
     });
-    skipBtn.addEventListener('click', finish);
     // keyboard focus reaching the card's links shows the finished card
     $('.p2f-card--film').addEventListener('focusin', () => { if (state === 'playing' || state === 'paused') finish(); });
     // the site's own "Pause animations" control and reduced-motion preference are respected
