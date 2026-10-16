@@ -8,6 +8,193 @@
       </div>
       <figure class="hero-image"><picture><source type="image/webp" srcset="images/hero-800.webp 800w, images/hero-1600.webp 1600w" sizes="(max-width: 700px) 100vw, 56vw" /><img src="p2-solar-hero-v2.jpg" width="1600" height="1000" alt="Two installers positioning solar panels on a rooftop overlooking a green landscape" fetchpriority="high" decoding="async" /></picture></figure>
     </section>
+    <section class="p2f" id="p2f" aria-labelledby="p2f-heading" data-p2f-gsap="vendor/gsap.min.js?v={{VERSION}}" data-p2f-film="p2-film.js?v={{VERSION}}">
+      <h2 class="p2f-vh" id="p2f-heading">P2 Solar at a glance</h2>
+      <p class="p2f-vh">A 16-second animation, without sound: sunlight reaches a solar cell, the view pulls back to a home and a business with rooftop solar, energy charges battery storage and lights the windows at dusk, then the company card below appears.</p>
+      <div class="p2f-stage">
+        <div class="p2f-film">
+          <div class="p2f-sky-night" aria-hidden="true"></div>
+          <div class="p2f-sky-day" aria-hidden="true"><div class="p2f-sun"></div></div>
+          <div class="p2f-sky-dusk" aria-hidden="true"></div>
+          <svg id="p2f-world" class="p2f-world" xmlns="http://www.w3.org/2000/svg" viewBox="1800 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+          <linearGradient id="p2f-cellGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#2a4c7c"/><stop offset=".45" stop-color="#16304f"/><stop offset="1" stop-color="#0b1828"/>
+          </linearGradient>
+          <linearGradient id="p2f-frameGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#eef1f3"/><stop offset="1" stop-color="#a9b2b9"/>
+          </linearGradient>
+          <linearGradient id="p2f-glassGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset=".34" stop-color="#ffffff" stop-opacity="0"/>
+          <stop offset=".58" stop-color="#ffffff" stop-opacity=".06"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="p2f-lawnGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#6b9659"/><stop offset="1" stop-color="#4c7543"/>
+          </linearGradient>
+          <radialGradient id="p2f-warmGlow">
+          <stop offset="0" stop-color="#ffd07a" stop-opacity=".8"/><stop offset="1" stop-color="#ffd07a" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="p2f-shadowGrad">
+          <stop offset="0" stop-color="#1d3324" stop-opacity=".45"/><stop offset="1" stop-color="#1d3324" stop-opacity="0"/>
+          </radialGradient>
+          </defs>
+          <path fill="#b3c6a2" d="M-300 790 C 150 700 480 770 820 724 S 1420 690 1720 742 S 2420 700 2820 734 S 3520 690 4000 744 V 1300 H -300 Z"/>
+          <path fill="#87a874" d="M-300 858 C 280 800 690 852 1010 822 S 1610 800 2010 842 S 2910 800 3310 832 S 3810 818 4000 842 V 1300 H -300 Z"/>
+          <rect x="-300" y="884" width="4300" height="420" fill="url(#p2f-lawnGrad)"/>
+          <g id="p2f-trees">
+          <rect x="186" y="790" width="10" height="100" fill="#4a3a2c"/><circle cx="191" cy="776" r="70" fill="#3f6b45"/><circle cx="214" cy="748" r="40" fill="#4c7a50"/>
+          <rect x="128" y="824" width="8" height="64" fill="#4a3a2c"/><circle cx="132" cy="816" r="46" fill="#355d3c"/>
+          <rect x="1040" y="770" width="9" height="116" fill="#4a3a2c"/><circle cx="1044" cy="760" r="54" fill="#3b6442"/><circle cx="1062" cy="736" r="30" fill="#4b7a4f"/>
+          <rect x="1816" y="786" width="10" height="100" fill="#4a3a2c"/><circle cx="1821" cy="772" r="66" fill="#3f6b45"/>
+          <rect x="1886" y="822" width="8" height="64" fill="#4a3a2c"/><circle cx="1890" cy="814" r="44" fill="#355d3c"/>
+          <rect x="2046" y="812" width="8" height="74" fill="#4a3a2c"/><circle cx="2050" cy="802" r="50" fill="#3b6442"/>
+          <rect x="2256" y="790" width="10" height="96" fill="#4a3a2c"/><circle cx="2261" cy="776" r="66" fill="#3f6b45"/><circle cx="2284" cy="750" r="36" fill="#4c7a50"/>
+          <rect x="3476" y="800" width="10" height="86" fill="#4a3a2c"/><circle cx="3481" cy="790" r="60" fill="#3b6442"/>
+          <rect x="3596" y="828" width="8" height="58" fill="#4a3a2c"/><circle cx="3600" cy="820" r="40" fill="#355d3c"/>
+          <rect x="3756" y="792" width="10" height="94" fill="#4a3a2c"/><circle cx="3761" cy="778" r="70" fill="#3f6b45"/>
+          </g>
+          <g id="p2f-home">
+          <ellipse cx="590" cy="902" rx="380" ry="22" fill="url(#p2f-shadowGrad)"/>
+          <rect x="640" y="404" width="36" height="80" fill="#8a5b45"/><rect x="633" y="397" width="50" height="11" fill="#6a4433"/>
+          <polygon points="740,640 860,590 860,850 740,900" fill="#d0c3a6"/>
+          <polygon points="744,638 820,478 858,592" fill="#d9ccb0"/>
+          <rect x="300" y="640" width="440" height="260" fill="#efe6d2"/>
+          <rect x="300" y="646" width="440" height="18" fill="#000" opacity=".1"/>
+          <rect x="300" y="886" width="440" height="14" fill="#c9bda3"/>
+          <rect x="345" y="700" width="120" height="100" fill="#2f443c"/><rect x="345" y="700" width="120" height="100" fill="none" stroke="#f7f1e3" stroke-width="6"/>
+          <path d="M405 700V800M345 750H465" stroke="#f7f1e3" stroke-width="4"/>
+          <rect x="505" y="700" width="120" height="100" fill="#2f443c"/><rect x="505" y="700" width="120" height="100" fill="none" stroke="#f7f1e3" stroke-width="6"/>
+          <path d="M565 700V800M505 750H625" stroke="#f7f1e3" stroke-width="4"/>
+          <rect x="650" y="766" width="64" height="120" fill="#2c4a3b"/><circle cx="703" cy="830" r="3.5" fill="#d9b35c"/>
+          <rect x="726" y="642" width="5" height="244" fill="#bfb49b"/>
+          <polygon points="276,640 764,640 824,465 336,465" fill="#323e39"/>
+          <polyline points="764,640 824,465 884,590" fill="none" stroke="#252e2a" stroke-width="7" stroke-linejoin="round"/>
+          <rect x="270" y="636" width="498" height="9" fill="#222b27"/>
+          <g id="p2f-homeRoof" transform="matrix(1 0 -0.3 0.875 336 465)"></g>
+          <g id="p2f-heroPanel"></g>
+          </g>
+          <g id="p2f-biz">
+          <ellipse cx="1400" cy="902" rx="380" ry="22" fill="url(#p2f-shadowGrad)"/>
+          <polygon points="1620,600 1700,567 1700,867 1620,900" fill="#c1c8b6"/>
+          <polygon points="1640,600 1680,490 1702,566" fill="#b5bcaa"/>
+          <rect x="1100" y="600" width="520" height="300" fill="#e2e5d8"/>
+          <rect x="1100" y="606" width="520" height="16" fill="#000" opacity=".1"/>
+          <rect x="1100" y="886" width="520" height="14" fill="#c4c9b8"/>
+          <path d="M1130 636H1590M1130 646H1590" stroke="#c8cebd" stroke-width="3"/>
+          <rect x="1122" y="656" width="476" height="20" fill="#1f3a2e"/>
+          <rect x="1140" y="684" width="440" height="168" fill="#2b4a40"/>
+          <path d="M1228 684V852M1316 684V852M1404 684V852M1492 684V852M1140 760H1580" stroke="#e2e5d8" stroke-width="6"/>
+          <rect x="1104" y="602" width="5" height="284" fill="#b9bfae"/>
+          <polygon points="1080,600 1640,600 1680,490 1120,490" fill="#323e39"/>
+          <polyline points="1640,600 1680,490" fill="none" stroke="#252e2a" stroke-width="6"/>
+          <rect x="1074" y="596" width="572" height="9" fill="#222b27"/>
+          <g id="p2f-bizRoof" transform="matrix(1 0 -0.2857 0.7857 1120 490)"></g>
+          </g>
+          <g id="p2f-battery">
+          <ellipse cx="958" cy="902" rx="78" ry="9" fill="url(#p2f-shadowGrad)"/>
+          <polygon points="990,746 1010,738 1010,892 990,900" fill="#cdc8b6"/>
+          <polygon points="905,740 925,732 1010,738 990,746" fill="#fbf9f2"/>
+          <rect x="905" y="740" width="85" height="160" rx="6" fill="#f1eee4"/>
+          <rect x="921" y="762" width="53" height="102" rx="6" fill="#20332b"/>
+          <rect x="929" y="770" width="37" height="18" rx="2" fill="#30463c"/>
+          <rect x="929" y="792" width="37" height="18" rx="2" fill="#30463c"/>
+          <rect x="929" y="814" width="37" height="18" rx="2" fill="#30463c"/>
+          <rect x="929" y="836" width="37" height="18" rx="2" fill="#30463c"/>
+          <path d="M923 876H972M923 882H972M923 888H972" stroke="#d6d1c0" stroke-width="2"/>
+          </g>
+          <rect id="p2f-duskTint" class="p2f-dusktint" x="-400" y="-400" width="4600" height="1900" fill="#16243a"/>
+          <g id="p2f-lights">
+          <ellipse id="p2f-haloHome" class="p2f-lit" cx="485" cy="760" rx="270" ry="130" fill="url(#p2f-warmGlow)"/>
+          <rect id="p2f-winHome1" class="p2f-lit" x="348" y="703" width="114" height="94" fill="#f6c46a"/>
+          <rect id="p2f-winHome2" class="p2f-lit" x="508" y="703" width="114" height="94" fill="#f6c46a"/>
+          <path class="p2f-lit p2f-winmun" d="M405 703V797M348 750H462M565 703V797M508 750H622" stroke="#c98a3b" stroke-width="4"/>
+          <ellipse id="p2f-haloBiz" class="p2f-lit" cx="1360" cy="880" rx="360" ry="70" fill="url(#p2f-warmGlow)"/>
+          <rect id="p2f-winBiz" class="p2f-lit" x="1143" y="687" width="434" height="162" fill="#f6c46a"/>
+          <path class="p2f-lit p2f-bizmun" d="M1228 687V849M1316 687V849M1404 687V849M1492 687V849M1143 760H1577" stroke="#c98a3b" stroke-width="5"/>
+          <rect id="p2f-seg1" class="p2f-lit" x="929" y="836" width="37" height="18" rx="2" fill="#9bdc5a"/>
+          <rect id="p2f-seg2" class="p2f-lit" x="929" y="814" width="37" height="18" rx="2" fill="#9bdc5a"/>
+          <rect id="p2f-seg3" class="p2f-lit" x="929" y="792" width="37" height="18" rx="2" fill="#9bdc5a"/>
+          <rect id="p2f-seg4" class="p2f-lit" x="929" y="770" width="37" height="18" rx="2" fill="#9bdc5a"/>
+          <path id="p2f-t1g" class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#f0a93b" stroke-width="14" stroke-opacity=".28" d="M728 642 V872 Q728 880 736 880 H905"/>
+          <path id="p2f-t1"  class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#f7b84e" stroke-width="5" d="M728 642 V872 Q728 880 736 880 H905"/>
+          <path id="p2f-t2g" class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#f0a93b" stroke-width="14" stroke-opacity=".28" d="M1106 604 V872 Q1106 880 1098 880 H990"/>
+          <path id="p2f-t2"  class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#f7b84e" stroke-width="5" d="M1106 604 V872 Q1106 880 1098 880 H990"/>
+          <path id="p2f-p1" class="p2f-pulse" pathLength="1" stroke-dasharray="0.08 1.3" stroke-dashoffset="0.08" stroke="#fff1cf" stroke-width="7" d="M728 642 V872 Q728 880 736 880 H905"/>
+          <path id="p2f-p2" class="p2f-pulse" pathLength="1" stroke-dasharray="0.08 1.3" stroke-dashoffset="0.08" stroke="#fff1cf" stroke-width="7" d="M1106 604 V872 Q1106 880 1098 880 H990"/>
+          <path id="p2f-t3g" class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#9bdc5a" stroke-width="14" stroke-opacity=".3" d="M905 894 H420 Q405 894 405 879 V804"/>
+          <path id="p2f-t3"  class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#b4ec74" stroke-width="5" d="M905 894 H420 Q405 894 405 879 V804"/>
+          <path id="p2f-t4g" class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#9bdc5a" stroke-width="14" stroke-opacity=".3" d="M990 894 H1300 Q1315 894 1315 879 V856"/>
+          <path id="p2f-t4"  class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#b4ec74" stroke-width="5" d="M990 894 H1300 Q1315 894 1315 879 V856"/>
+          <path id="p2f-p3" class="p2f-pulse" pathLength="1" stroke-dasharray="0.08 1.3" stroke-dashoffset="0.08" stroke="#efffd9" stroke-width="7" d="M905 894 H420 Q405 894 405 879 V804"/>
+          <path id="p2f-p4" class="p2f-pulse" pathLength="1" stroke-dasharray="0.08 1.3" stroke-dashoffset="0.08" stroke="#efffd9" stroke-width="7" d="M990 894 H1300 Q1315 894 1315 879 V856"/>
+          <path id="p2f-wtg" class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#9bdc5a" stroke-width="16" stroke-opacity=".3"
+          d="M998 900 V922 Q998 930 1006 930 H2124 Q2140 930 2140 914 V166 Q2140 150 2156 150 H3364 Q3380 150 3380 166 V884 Q3380 900 3364 900 H2156 Q2140 900 2140 884"/>
+          <path id="p2f-wt" class="p2f-tr" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" stroke="#b4ec74" stroke-width="4"
+          d="M998 900 V922 Q998 930 1006 930 H2124 Q2140 930 2140 914 V166 Q2140 150 2156 150 H3364 Q3380 150 3380 166 V884 Q3380 900 3364 900 H2156 Q2140 900 2140 884"/>
+          </g>
+          </svg>
+          <div class="p2f-cell-dark" aria-hidden="true"></div>
+          <div class="p2f-bloom" aria-hidden="true"></div>
+          <div class="p2f-beamrot" aria-hidden="true"><div class="p2f-beam"></div></div>
+          <div class="p2f-strike" aria-hidden="true"></div>
+          <div class="p2f-sheenrot" aria-hidden="true"><div class="p2f-sheen"></div></div>
+          <div class="p2f-vignette" aria-hidden="true"></div>
+          <div class="p2f-dim" aria-hidden="true"></div>
+          <div class="p2f-inlay">
+            <div class="p2f-cardwrap">
+            <article class="p2f-card p2f-card--film" aria-labelledby="p2f-card-title-film">
+              <div class="p2f-card-brand">
+                <picture data-p2f-step="logo"><source type="image/webp" srcset="images/logo.webp" /><img class="p2f-card-logo" src="images/logo.png" width="360" height="134" alt="P2 Solar, Powering Change" loading="lazy" decoding="async" /></picture>
+                <p class="p2f-card-url" data-p2f-step="url">P2Solar.com</p>
+                <p class="p2f-card-actions" data-p2f-step="cta"><a class="p2f-card-cta" href="contact/">Request a solar consultation <span aria-hidden="true">↗</span></a><a class="p2f-card-link" href="investors/">Investor information <span aria-hidden="true">→</span></a></p>
+              </div>
+              <div class="p2f-card-body">
+                <h3 class="p2f-card-title" id="p2f-card-title-film" data-p2f-step="title">Company at a glance</h3>
+                <dl class="p2f-facts">
+                  <div class="p2f-fact p2f-fact--symbol" data-p2f-step="symbol"><dt>Symbol</dt><dd>OTC: PTOS</dd></div>
+                  <div class="p2f-fact p2f-fact--col" data-p2f-step="facts"><dt>Incorporated</dt><dd>State of Delaware</dd></div>
+                  <div class="p2f-fact p2f-fact--col" data-p2f-step="facts"><dt>Head office</dt><dd>Surrey, British Columbia</dd></div>
+                  <div class="p2f-fact p2f-fact--col" data-p2f-step="facts"><dt>Fiscal year end</dt><dd>March 31</dd></div>
+                  <div class="p2f-fact p2f-fact--rep" data-p2f-step="rep"><dt>Reporting</dt><dd><span>U.S. Securities and Exchange Commission;</span> <span>British Columbia Securities Commission</span> <span>(OTC reporting issuer under MI 51-105)</span></dd></div>
+                </dl>
+              </div>
+            </article>
+              <div class="p2f-mini" aria-hidden="true"><div class="p2f-mini-brand"><img src="images/logo.png" width="360" height="134" alt="" loading="lazy" decoding="async" /></div><div class="p2f-mini-body"><p class="p2f-mini-title">Company at a glance</p><p class="p2f-mini-label">Symbol</p><p class="p2f-mini-symbol">OTC: PTOS</p></div></div>
+            </div>
+          </div>
+          <div class="p2f-hud" aria-hidden="true">
+            <picture class="p2f-brand"><source type="image/webp" srcset="images/logo.webp" /><img src="images/logo.png" width="360" height="134" alt="" decoding="async" /></picture>
+            <div class="p2f-hl p2f-hl--1"><div class="p2f-hli p2f-hli--1">Solar for homes and businesses.</div></div>
+            <div class="p2f-hl p2f-hl--2"><div class="p2f-hli p2f-hli--2">From sunlight to your roof.</div></div>
+            <div class="p2f-hl p2f-hl--3"><div class="p2f-hli p2f-hli--3">Paired with battery storage.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="p2f-controls" role="group" aria-label="Animation controls" hidden>
+        <button class="p2f-btn p2f-toggle" type="button">Play</button>
+        <button class="p2f-btn p2f-skip" type="button">Skip to company facts</button>
+        <p class="p2f-status" role="status"></p>
+      </div>
+      <article class="p2f-card p2f-card--flow" aria-labelledby="p2f-card-title-flow">
+              <div class="p2f-card-brand">
+                <picture data-p2f-step="logo"><source type="image/webp" srcset="images/logo.webp" /><img class="p2f-card-logo" src="images/logo.png" width="360" height="134" alt="P2 Solar, Powering Change" loading="lazy" decoding="async" /></picture>
+                <p class="p2f-card-url" data-p2f-step="url">P2Solar.com</p>
+                <p class="p2f-card-actions" data-p2f-step="cta"><a class="p2f-card-cta" href="contact/">Request a solar consultation <span aria-hidden="true">↗</span></a><a class="p2f-card-link" href="investors/">Investor information <span aria-hidden="true">→</span></a></p>
+              </div>
+              <div class="p2f-card-body">
+                <h3 class="p2f-card-title" id="p2f-card-title-flow" data-p2f-step="title">Company at a glance</h3>
+                <dl class="p2f-facts">
+                  <div class="p2f-fact p2f-fact--symbol" data-p2f-step="symbol"><dt>Symbol</dt><dd>OTC: PTOS</dd></div>
+                  <div class="p2f-fact p2f-fact--col" data-p2f-step="facts"><dt>Incorporated</dt><dd>State of Delaware</dd></div>
+                  <div class="p2f-fact p2f-fact--col" data-p2f-step="facts"><dt>Head office</dt><dd>Surrey, British Columbia</dd></div>
+                  <div class="p2f-fact p2f-fact--col" data-p2f-step="facts"><dt>Fiscal year end</dt><dd>March 31</dd></div>
+                  <div class="p2f-fact p2f-fact--rep" data-p2f-step="rep"><dt>Reporting</dt><dd><span>U.S. Securities and Exchange Commission;</span> <span>British Columbia Securities Commission</span> <span>(OTC reporting issuer under MI 51-105)</span></dd></div>
+                </dl>
+              </div>
+            </article>
+      <noscript><link rel="stylesheet" href="p2-film-nojs.css?v={{VERSION}}" /></noscript>
+      <script src="p2-film-boot.js?v={{VERSION}}" defer></script>
+    </section>
     <section class="intro" aria-labelledby="intro-title">
       <p class="eyebrow" id="intro-title">The P2 Solar perspective</p>
       <p class="intro-statement"><span class="intro-first-line">Progress starts with what we do today.</span><span>And what we make possible next.</span></p>

@@ -28,6 +28,8 @@ This regenerates every page plus `sitemap.xml`, `robots.txt` and `llms.txt`, so 
 
 Styles are in `site.css`. Typography uses two self-hosted open-licence fonts in `fonts/` (Instrument Sans for headings and text, IBM Plex Mono for dates and labels) on one fluid type scale and one spacing scale, both defined as variables near the end of the file. Colour comes from three ramps built from the logo green (leaf, forest and a green-tinted stone neutral) and named roles such as `--text`, `--accent-text` and `--on-dark`; every text pairing meets WCAG AA contrast; the small script for the mobile menu and animation toggle is `app.js`. After changing either, bump `VERSION` in `build.py` and rebuild so browsers fetch the new files.
 
+The homepage story film (right after the hero) is native SVG and HTML animated by `p2-film.js` with a local copy of GSAP in `vendor/`. Only the small `p2-film-boot.js` loads with the page; it fetches GSAP and `p2-film.js` when the section nears the viewport, or when a visitor presses Play (never with reduced motion unless they do). Its markup lives in `src/home.html` (section `#p2f`) and its styles at the end of `site.css` (prefix `.p2f`). It has no sound, plays once when scrolled into view, and always ends on the company card. Without JavaScript or with reduced motion, the card shows straight away.
+
 Preview locally with `python3 -m http.server 4176` and open http://localhost:4176.
 
 ## Search and AI-answer optimization

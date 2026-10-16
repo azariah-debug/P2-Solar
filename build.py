@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261005-icon"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261015-film"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -564,6 +564,7 @@ def home_page():
                'imagesizes="(max-width: 700px) 100vw, 56vw" fetchpriority="high" />\n')
     body = open("src/home.html", encoding="utf-8").read()
     body = body.replace("{{NEWS_LIST}}", news_rows(""))
+    body = body.replace("{{VERSION}}", VERSION)
     body = body.replace("{{FAQ}}", faq_html(HOME_FAQ, "", "Common <em>questions.</em>", "About P2 Solar",
                                             "Quick answers about the company, its solar services and its research."))
     return f"""{head(page, BASE, "", preload)}
