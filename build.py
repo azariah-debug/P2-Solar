@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261015-film"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261016-links"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -518,7 +518,7 @@ def inner_page(page):
         src, alt, w, h = page["logo"]
         logo = f'      <div class="route-brand"><img src="{root}{src}" width="{w}" height="{h}" alt="{attr(alt)}" /></div>\n'
         if src == "futricity.jpg":
-            logo = logo.replace("<img", '<a href="https://futricitysolar.com"><img').replace("</div>", "</a></div>")
+            logo = logo.replace("<img", '<a href="https://futricitysolar.com" aria-label="Visit Futricity Solar website" class="brand-site-link"><img').replace("</div>", '<span class="brand-site-cue">Visit Futricity Solar <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M4 4h8v8" /></svg></span></a></div>')
     blocks = render_blocks(page["blocks"], root, page.get("layout"))
     faq = ""
     if page.get("faq"):
@@ -602,7 +602,59 @@ def not_found_page():
 """
 
 
+from html.parser import HTMLParser
+import re
+
+
+def link_futricity_mentions(markup):
+    """Link visible brand mentions without changing metadata, images or existing link text."""
+    destination = 'https://futricitysolar.com'
+    pattern = re.compile(r'\bFutricity(?: Solar)?\b')
+    def existing_anchor(match):
+        opening, body = match.group(1), match.group(2)
+        if 'brand-site-link' in opening or 'futricity-inline' in opening or not pattern.search(re.sub(r'<[^>]+>', '', body)):
+            return match.group(0)
+        opening = re.sub(r'href="[^"]*"', 'href="' + destination + '"', opening)
+        if 'class="' in opening:
+            opening = opening.replace('class="', 'class="futricity-inline ', 1)
+        else:
+            opening = opening[:-1] + ' class="futricity-inline">'
+        return opening + body + '</a>'
+    markup = re.sub(r'(<a\b[^>]*>)(.*?)</a>', existing_anchor, markup, flags=re.S)
+    class Linker(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=False)
+            self.edits, self.blocked, self.body = [], [], False
+            self.lines = [0]
+            for match in re.finditer('\n', markup): self.lines.append(match.end())
+        def handle_starttag(self, tag, attrs):
+            if tag == 'body': self.body = True
+            if tag in ('a', 'script', 'style', 'title'): self.blocked.append(tag)
+        def handle_endtag(self, tag):
+            if tag == 'body': self.body = False
+            if self.blocked and self.blocked[-1] == tag: self.blocked.pop()
+        def handle_data(self, text):
+            if self.body and not self.blocked and pattern.search(text):
+                line, column = self.getpos()
+                start = self.lines[line - 1] + column
+                linked = pattern.sub(lambda m: '<a class="futricity-inline" href="' + destination + '">' + m[0] + '</a>', text)
+                self.edits.append((start, start + len(text), linked))
+    parser = Linker()
+    parser.feed(markup)
+    for start, end, linked in reversed(parser.edits):
+        markup = markup[:start] + linked + markup[end:]
+    # Keep each summary sentence as one flex item beside its expand/collapse icon.
+    def summary(match):
+        text = match.group(1)
+        if 'futricity-inline' in text and not text.startswith('<span>'):
+            text = '<span>' + text + '</span>'
+        return '<summary>' + text + '</summary>'
+    return re.sub(r'<summary>(.*?)</summary>', summary, markup, flags=re.S)
+
+
 def write(path, text):
+    if path.endswith(".html"):
+        text = link_futricity_mentions(text)
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(text)

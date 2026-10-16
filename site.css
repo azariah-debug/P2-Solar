@@ -1297,3 +1297,15 @@ html .solar-feature.section-wrap { padding-bottom:calc(var(--space-section) - va
 .p2f-controls .p2f-toggle:hover { text-decoration:underline; text-underline-offset:.2em; }
 .p2f-controls .p2f-toggle:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
 .p2f-arrow { width:1em; height:1em; display:inline-block; vertical-align:-.125em; margin-left:.15em; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+
+/* Persistent website cue on the two linked Futricity logos. */
+.brand-site-link { display:inline-flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:.375rem; min-width:44px; min-height:44px; padding:4px 0; color:var(--forest); text-decoration:none; border-radius:4px; }
+.business-grid .division-logo-wrap.brand-site-link { height:auto; min-height:120px; gap:.375rem; }
+.brand-site-cue { display:inline-flex; align-items:center; gap:.375rem; font-size:.8125rem; font-weight:600; line-height:1.5; color:var(--forest); text-decoration:underline; text-underline-offset:.2em; text-decoration-thickness:1px; }
+.brand-site-cue svg { flex:none; width:14px; height:14px; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.brand-site-link:hover .brand-site-cue { text-decoration-thickness:2px; }
+.brand-site-link:focus-visible { outline:2px solid var(--forest); outline-offset:5px; }
+
+.futricity-inline { color:inherit; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.18em; border-radius:2px; }
+.futricity-inline:hover { text-decoration-thickness:2px; }
+.futricity-inline:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
