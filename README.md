@@ -16,6 +16,14 @@ Static website for P2 Solar, Inc. (OTC: PTOS). Every page is plain HTML, so it c
 
 Old single-page links such as `/#/investors` forward automatically to the new pages.
 
+## Checks required before updating GitHub
+
+Before every GitHub update, compare the latest work from the owning task and its local checkout with the current remote branch and deployed site. Reconcile any differences before preparing a commit; do not assume a previous handoff or deployment is current.
+
+Review the exact diff and run checks for the affected pages and features before pushing. Homepage changes must include mobile rendering, native animation visibility and playback, console/network asset checks, and reduced-motion behavior. Preserve approved work and verify that required assets are included. If a check fails or the source state is uncertain, resolve it before pushing.
+
+After publication, verify the deployed result and report the commit and checks performed. When maintaining both GitHub Pages and the private Sites copy, compare their affected features so an older copy is not presented as fully synchronized.
+
 ## Editing content
 
 All text lives in `build.py` (news, directors, services, questions and answers, page copy). The homepage layout is in `src/home.html`. After editing, run:
