@@ -517,6 +517,8 @@ def inner_page(page):
     if page.get("logo"):
         src, alt, w, h = page["logo"]
         logo = f'      <div class="route-brand"><img src="{root}{src}" width="{w}" height="{h}" alt="{attr(alt)}" /></div>\n'
+        if src == "futricity.jpg":
+            logo = logo.replace("<img", '<a href="https://futricitysolar.com"><img').replace("</div>", "</a></div>")
     blocks = render_blocks(page["blocks"], root, page.get("layout"))
     faq = ""
     if page.get("faq"):
