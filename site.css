@@ -1287,3 +1287,15 @@ html .solar-feature.section-wrap { padding-bottom:calc(var(--space-section) - va
   .p2f { padding:1.5rem 1rem .5rem; }
   .p2f-stage { border-radius:8px; }
 }
+
+/* Stable controls: reserve the same row before loading, during playback and at the end. */
+.p2f-controls { display:grid; grid-template-columns:11.5rem minmax(0,1fr); max-width:28rem; align-items:stretch; min-height:2.4rem; }
+.p2f-controls[hidden] { display:grid; visibility:hidden; }
+.p2f-controls .p2f-btn { box-sizing:border-box; min-height:2.4rem; }
+.p2f-controls .p2f-btn[hidden] { display:block; visibility:hidden; }
+.p2f-controls .p2f-status { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0; }
+.p2f-arrow { width:1em; height:1em; display:inline-block; vertical-align:-.125em; margin-left:.15em; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+@media (max-width:480px) {
+  .p2f-controls { grid-template-columns:8rem minmax(0,1fr); gap:.6rem; min-height:3.5rem; }
+  .p2f-controls .p2f-btn { min-height:3.5rem; padding:.6rem .65rem; }
+}
