@@ -132,7 +132,7 @@ window.P2Film = {
     FT(glare, { opacity: 0 }, { opacity: 0.5, duration: 0.14, ease: 'power1.out', stagger: gx }, C('panel_glint'));
     FT(glare, { opacity: 0.5 }, { opacity: 0, duration: 0.35, ease: 'power1.in', stagger: gx }, C('panel_glint') + 0.14);
 
-    // storage, dusk, windows
+    // Storage and window cues continue over the bright daytime scene.
     const draw = (ids, at, dur) => {
       tl.set(ids.map(i => '#p2f-' + i).join(','), { autoAlpha: 1 }, at);
       ids.forEach(i => FT('#p2f-' + i, { attr: { 'stroke-dashoffset': 1 } }, { attr: { 'stroke-dashoffset': 0 }, duration: dur, ease: 'power2.inOut' }, at));
@@ -145,10 +145,6 @@ window.P2Film = {
     draw(['t1g', 't1', 't2g', 't2'], C('trace_charge'), 0.6);
     pulse('p1', C('trace_charge') + 0.45, 0.9); pulse('p2', C('trace_charge') + 0.55, 0.9);
     [1, 2, 3, 4].forEach(i => FT('#p2f-seg' + i, { opacity: 0 }, { opacity: 1, duration: 0.12, ease: 'power2.out' }, C('battery_' + i)));
-    FT('.p2f-sky-dusk', { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'sine.inOut' }, C('dusk'));
-    FT('#p2f-duskTint', { opacity: 0 }, { opacity: 0.44, duration: 1.2, ease: 'sine.inOut' }, C('dusk'));
-    FT('.p2f-sun', { opacity: 1 }, { opacity: 0, duration: 0.9, ease: 'sine.inOut' }, C('dusk'));
-    FT('.p2f-hli--3', { color: '#13261d' }, { color: '#f4f1e6', duration: 0.8, ease: 'sine.inOut' }, C('dusk'));
     draw(['t3g', 't3', 't4g', 't4'], C('dusk'), 0.5);
     pulse('p3', C('dusk') + 0.4, 0.8); pulse('p4', C('dusk') + 0.6, 0.8);
     FT(['#p2f-winHome1', '#p2f-winHome2', '#p2f-haloHome', '.p2f-winmun'], { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, C('window_home'));
@@ -159,7 +155,6 @@ window.P2Film = {
     FT('.p2f-inlay', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: 'sine.out' }, C('site_reveal') - 0.15);
     FT('.p2f-cardwrap', { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.65, ease: 'power3.inOut' }, C('site_reveal'));
     FT(['#p2f-wt', '#p2f-wtg'], { opacity: 1 }, { opacity: 0, duration: 0.45, ease: 'sine.inOut' }, C('site_reveal') + 0.15);
-    FT('.p2f-dim', { opacity: 0 }, { opacity: 0.60, duration: 0.7, ease: 'sine.inOut' }, C('site_reveal') - 0.2);
     // card rows (wide layout) build on the beat; opacity only, so the text stays in the accessibility tree
     const step = (name, at, dur, ease, y) => FT(`.p2f-card--film [data-p2f-step="${name}"]`, { opacity: 0, y }, { opacity: 1, y: 0, duration: dur, ease, stagger: 0.08 }, at);
     step('logo', C('logo_land'), 0.5, 'power3.out', 12);

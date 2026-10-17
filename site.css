@@ -1207,13 +1207,13 @@ html .solar-feature.section-wrap { padding-bottom:0; }
 .p2f-sky-night,.p2f-sky-day,.p2f-sky-dusk,.p2f-cell-dark,.p2f-vignette,.p2f-dim,.p2f-hud { position:absolute; inset:0; pointer-events:none; }
 .p2f-sky-night { background:radial-gradient(120% 90% at 85% 0%,#14271f 0%,#0b1611 60%); }
 .p2f-sky-day { background:linear-gradient(180deg,#d9e6e2 0%,#e9eee3 42%,#f5eed8 72%,#f7e6c4 100%); }
-.p2f-sun { position:absolute; left:1380px; top:-60px; width:520px; height:520px; border-radius:50%; opacity:0; background:radial-gradient(circle,rgba(255,248,225,1) 0%,rgba(255,233,180,.85) 14%,rgba(255,214,140,.32) 34%,rgba(255,214,140,0) 68%); }
-.p2f-sky-dusk { background:linear-gradient(180deg,#0f201c 0%,#1d3833 38%,#5b5340 66%,#c98a4b 84%,#eeb066 100%); }
+.p2f-sun { position:absolute; left:1380px; top:-60px; width:520px; height:520px; border-radius:50%; opacity:1; background:radial-gradient(circle,rgba(255,248,225,1) 0%,rgba(255,233,180,.85) 14%,rgba(255,214,140,.32) 34%,rgba(255,214,140,0) 68%); }
+.p2f-sky-dusk { opacity:0; background:linear-gradient(180deg,#0f201c 0%,#1d3833 38%,#5b5340 66%,#c98a4b 84%,#eeb066 100%); }
 .p2f-world { position:absolute; left:0; top:0; width:100%; height:100%; display:block; }
 .p2f-world .p2f-tr { visibility:hidden; fill:none; stroke-linecap:butt; stroke-linejoin:round; }
 .p2f-world .p2f-pulse { visibility:hidden; fill:none; stroke-linecap:round; }
 .p2f-world .p2f-lit { opacity:0; }
-.p2f-dusktint { opacity:.44; }
+.p2f-dusktint { opacity:0; }
 .p2f-cell-dark { background:#07100c; opacity:0; }
 .p2f-bloom { position:absolute; left:1180px; top:-520px; width:1400px; height:1100px; border-radius:50%; opacity:0; mix-blend-mode:screen; pointer-events:none; background:radial-gradient(closest-side,rgba(255,214,150,.75),rgba(255,190,110,.28) 45%,rgba(255,190,110,0)); }
 .p2f-beamrot { position:absolute; left:960px; top:410px; width:1900px; height:260px; transform-origin:0 50%; transform:rotate(-29deg); mix-blend-mode:screen; pointer-events:none; }
@@ -1221,14 +1221,14 @@ html .solar-feature.section-wrap { padding-bottom:0; }
 .p2f-strike { position:absolute; left:660px; top:240px; width:600px; height:600px; border-radius:50%; opacity:0; mix-blend-mode:screen; pointer-events:none; background:radial-gradient(closest-side,rgba(255,236,196,.8),rgba(255,206,140,.25) 50%,rgba(255,206,140,0)); }
 .p2f-sheenrot { position:absolute; left:0; top:-700px; width:700px; height:2500px; transform-origin:50% 50%; transform:rotate(22deg); mix-blend-mode:screen; pointer-events:none; }
 .p2f-sheen { position:absolute; inset:0; transform:translateX(2300px); background:linear-gradient(90deg,rgba(255,240,215,0) 0%,rgba(255,240,215,.16) 40%,rgba(255,248,232,.34) 50%,rgba(255,240,215,.16) 60%,rgba(255,240,215,0) 100%); }
-.p2f-vignette { background:radial-gradient(120% 120% at 50% 45%,rgba(0,0,0,0) 58%,rgba(52,74,60,.16) 100%); }
-.p2f-dim { background:#b4c4ac; opacity:.60; }
+.p2f-vignette { background:none; }
+.p2f-dim { background:none; opacity:0; }
 .p2f-brand { position:absolute; left:96px; top:48px; visibility:hidden; opacity:0; }
 .p2f-brand img { display:block; width:312px; height:116px; }
 .p2f-hl { position:absolute; left:96px; top:190px; width:1500px; overflow:hidden; visibility:hidden; opacity:0; padding-bottom:6px; }
 .p2f-hli { font-size:72px; line-height:1.12; font-weight:650; letter-spacing:-.015em; white-space:nowrap; color:#13261d; }
 .p2f-hli--1 { color:#fffdf5; text-shadow:0 1px 2px rgba(3,10,7,.90),0 0 10px rgba(3,10,7,.80),0 0 26px rgba(3,10,7,.65),0 0 56px rgba(3,10,7,.45); }
-.p2f-inlay { position:absolute; left:340px; top:150px; width:1240px; height:750px; border-radius:16px; overflow:hidden; background:#13261d; box-shadow:0 40px 110px rgba(18,34,26,.26),0 0 0 1px rgba(155,220,90,.50); }
+.p2f-inlay { position:absolute; left:340px; top:150px; width:1240px; height:750px; border-radius:16px; overflow:hidden; background:#13261d; box-shadow:0 28px 80px rgba(10,24,17,.38),0 8px 24px rgba(10,24,17,.20),0 0 0 1px rgba(155,220,90,.50); }
 .p2f-cardwrap { position:absolute; inset:0; }
 /* t = 0 while the animation runs (GSAP takes over from here) */
 .p2f.is-anim .p2f-sky-day { opacity:0; }
