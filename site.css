@@ -616,7 +616,7 @@ footer .eyebrow,.footer-top h2 em { color:var(--lime-wash); }
 .business-grid .business-icon { position:static; width:90px; height:90px; margin:0; opacity:.8; }
 .business-grid .business > p { padding:22px 0 0; margin:0; max-width:43ch; align-self:start; font-size:1.125rem; line-height:1.6; }
 .business-grid .business-tags { display:none; }
-.business-grid .business-link { justify-self:start; align-self:end; margin:28px 0 0; padding:12px 18px; min-height:48px; gap:26px; border:0; border-radius:4px; background:var(--forest); color:var(--paper-bright); font-size:.875rem; font-weight:500; text-decoration:none; }
+.business-grid .business-link { justify-self:start; align-self:end; width:calc(9.53em + 5.375rem); max-width:100%; margin:28px 0 0; padding:12px 18px; min-height:48px; gap:12px; border:0; border-radius:4px; background:var(--forest); color:var(--paper-bright); font-size:.875rem; font-weight:500; text-decoration:none; }
 .business-grid .business-link:hover { background:var(--stone-700); color:var(--paper-bright); text-decoration:none; }
 .business-grid .business-link:focus-visible { outline-color:var(--forest); }
 @media(min-width:701px) and (max-width:1000px) {
