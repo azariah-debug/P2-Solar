@@ -1179,9 +1179,8 @@ html .hero::before { background:linear-gradient(90deg,rgba(14,34,24,.9),rgba(14,
 
 /* CO2 orbit dots match the atom icon's electrons: same fill, same thin pale rim */
 html .orbit-traveler::after { background:var(--stone-400); box-shadow:0 0 0 1.5px var(--stone-100); width:9px; height:9px; }
-/* Equal space above and below the CO2 panel: the last service row's own padding is
-   subtracted so text-to-panel matches panel-to-text at every width */
-html .solar-feature.section-wrap { padding-bottom:calc(var(--space-section) - var(--space-s)); }
+/* Match the last service row’s bottom gap to the preceding row dividers. */
+html .solar-feature.section-wrap { padding-bottom:0; }
 
 /* Phones: the CO2 movement sits exactly centred between the text above it and the
    "P2 CleanTech Labs" text below it. Ring group = 1.25 x ring size (offsets -8% / +17%). */
@@ -1222,14 +1221,14 @@ html .solar-feature.section-wrap { padding-bottom:calc(var(--space-section) - va
 .p2f-strike { position:absolute; left:660px; top:240px; width:600px; height:600px; border-radius:50%; opacity:0; mix-blend-mode:screen; pointer-events:none; background:radial-gradient(closest-side,rgba(255,236,196,.8),rgba(255,206,140,.25) 50%,rgba(255,206,140,0)); }
 .p2f-sheenrot { position:absolute; left:0; top:-700px; width:700px; height:2500px; transform-origin:50% 50%; transform:rotate(22deg); mix-blend-mode:screen; pointer-events:none; }
 .p2f-sheen { position:absolute; inset:0; transform:translateX(2300px); background:linear-gradient(90deg,rgba(255,240,215,0) 0%,rgba(255,240,215,.16) 40%,rgba(255,248,232,.34) 50%,rgba(255,240,215,.16) 60%,rgba(255,240,215,0) 100%); }
-.p2f-vignette { background:radial-gradient(120% 120% at 50% 45%,rgba(0,0,0,0) 55%,rgba(5,12,9,.38) 100%); }
-.p2f-dim { background:#081410; opacity:.55; }
+.p2f-vignette { background:radial-gradient(120% 120% at 50% 45%,rgba(0,0,0,0) 58%,rgba(52,74,60,.16) 100%); }
+.p2f-dim { background:#b4c4ac; opacity:.60; }
 .p2f-brand { position:absolute; left:96px; top:48px; visibility:hidden; opacity:0; }
 .p2f-brand img { display:block; width:312px; height:116px; }
 .p2f-hl { position:absolute; left:96px; top:190px; width:1500px; overflow:hidden; visibility:hidden; opacity:0; padding-bottom:6px; }
 .p2f-hli { font-size:72px; line-height:1.12; font-weight:650; letter-spacing:-.015em; white-space:nowrap; color:#13261d; }
-.p2f-hli--1 { color:#f4f1e6; }
-.p2f-inlay { position:absolute; left:340px; top:150px; width:1240px; height:750px; border-radius:16px; overflow:hidden; background:#13261d; box-shadow:0 50px 120px rgba(2,8,6,.55),0 0 0 1px rgba(155,220,90,.45); }
+.p2f-hli--1 { color:#fffdf5; text-shadow:0 1px 2px rgba(3,10,7,.90),0 0 10px rgba(3,10,7,.80),0 0 26px rgba(3,10,7,.65),0 0 56px rgba(3,10,7,.45); }
+.p2f-inlay { position:absolute; left:340px; top:150px; width:1240px; height:750px; border-radius:16px; overflow:hidden; background:#13261d; box-shadow:0 40px 110px rgba(18,34,26,.26),0 0 0 1px rgba(155,220,90,.50); }
 .p2f-cardwrap { position:absolute; inset:0; }
 /* t = 0 while the animation runs (GSAP takes over from here) */
 .p2f.is-anim .p2f-sky-day { opacity:0; }

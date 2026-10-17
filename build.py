@@ -11,7 +11,7 @@ import json
 import os
 
 BASE = "https://www.p2solar.com/"   # final public address; used for canonical URLs, sitemap and sharing
-VERSION = "20261016-links"             # bump to refresh browser caches after editing CSS or JS
+VERSION = "20261017-polish"             # bump to refresh browser caches after editing CSS or JS
 TODAY = datetime.date.today().isoformat()
 YEAR = datetime.date.today().year
 
@@ -43,9 +43,14 @@ def attr(text):
 # --------------------------------------------------------------------------
 
 NEWS = [
-    {"id": "co2-capture-initiative", "title": "P2 Solar Launches R&D Initiative in Biological CO₂ Capture",
+    {"id": "cleantech-labs-formation", "title": "P2 Solar, Inc. Announces Formation of P2 CleanTech Labs, Inc. to Advance Carbon Mitigation Research",
+     "date": "2026-03-31",
+     "text": "P2 CleanTech Labs will be dedicated exclusively to carbon mitigation research and development, with an initial focus on exploring innovative approaches involving genetically engineered bacteria for potential carbon capture applications.",
+     "file": "press-release-2026-03-31.pdf"},
+    {"id": "co2-capture-initiative", "title": "P2 Solar Launches Breakthrough R&D Initiative in Biological CO₂ Capture",
      "date": "2025-09-04",
-     "text": "The company announced a research and development initiative exploring the use of engineered bacteria, powered by solar energy, to capture atmospheric carbon dioxide and convert it into products such as fuels or chemicals. The release outlined plans for a laboratory-scale prototype, followed by a potential pilot plant and licensing model."},
+     "text": "The company announced a research and development initiative exploring the use of engineered bacteria, powered by solar energy, to capture atmospheric carbon dioxide and convert it into products such as fuels or chemicals. The release outlined plans for a laboratory-scale prototype, followed by a potential pilot plant and licensing model.",
+     "file": "press-release-2025-09-04.pdf"},
     {"id": "new-website", "title": "P2 Solar, Inc. Announces Launch of New Website", "date": "2025-03-03",
      "text": "The company announced the launch of its updated website, providing information for investors and stakeholders.",
      "file": "press-release-2025-03-03.pdf"},
@@ -649,7 +654,14 @@ def link_futricity_mentions(markup):
         if 'futricity-inline' in text and not text.startswith('<span>'):
             text = '<span>' + text + '</span>'
         return '<summary>' + text + '</summary>'
-    return re.sub(r'<summary>(.*?)</summary>', summary, markup, flags=re.S)
+    markup = re.sub(r'<summary>(.*?)</summary>', summary, markup, flags=re.S)
+    # Questions and brand headings are labels, not external navigation.
+    def unlinked_label(match):
+        content = re.sub(r'<a\b[^>]*class="[^"]*futricity-inline[^\"]*"[^>]*>(.*?)</a>',
+                         r'\1', match.group(2), flags=re.S)
+        return match.group(1) + content + match.group(3)
+    return re.sub(r'(<(?:summary|h[1-6])\b[^>]*>|<p class="eyebrow">)(.*?)(</(?:summary|h[1-6]|p)>)',
+                  unlinked_label, markup, flags=re.S)
 
 
 def write(path, text):

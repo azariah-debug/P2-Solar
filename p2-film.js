@@ -159,7 +159,7 @@ window.P2Film = {
     FT('.p2f-inlay', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: 'sine.out' }, C('site_reveal') - 0.15);
     FT('.p2f-cardwrap', { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.65, ease: 'power3.inOut' }, C('site_reveal'));
     FT(['#p2f-wt', '#p2f-wtg'], { opacity: 1 }, { opacity: 0, duration: 0.45, ease: 'sine.inOut' }, C('site_reveal') + 0.15);
-    FT('.p2f-dim', { opacity: 0 }, { opacity: 0.55, duration: 0.7, ease: 'sine.inOut' }, C('site_reveal') - 0.2);
+    FT('.p2f-dim', { opacity: 0 }, { opacity: 0.60, duration: 0.7, ease: 'sine.inOut' }, C('site_reveal') - 0.2);
     // card rows (wide layout) build on the beat; opacity only, so the text stays in the accessibility tree
     const step = (name, at, dur, ease, y) => FT(`.p2f-card--film [data-p2f-step="${name}"]`, { opacity: 0, y }, { opacity: 1, y: 0, duration: dur, ease, stagger: 0.08 }, at);
     step('logo', C('logo_land'), 0.5, 'power3.out', 12);
